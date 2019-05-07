@@ -1,0 +1,110 @@
+$small : 420px;
+$medium : 768px;
+$large : 960px;
+$xlarge : 1440px;
+
+// Retina query (remove when not needed)
+@media (-webkit-min-device-pixel-ratio: 2), (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+
+}
+
+/* XL Devices : 1025 instead 1440 */
+@media (min-width: 1440px) and (max-width: 4000px) {
+  
+  // Pre Halalan  
+  .pre-halalan-desktop {
+    display: block !important;
+  }
+
+  // Halalan Day
+  .halalan-day-desktop {
+    display: block !important;
+  }
+
+  // Halalan Day B
+  .halalan-day-b-desktop {
+    display: block !important;
+    .content-holder {
+      .right-content {
+        .countdown-container {
+          border-bottom-right-radius: 10px;
+        }
+      }
+    }
+  }
+
+  // Halalan Results 
+  .halalan-results-desktop {
+    display: block !important;
+  }
+}
+
+/* XL Devices : 1025 instead 1440 */
+@media (min-width: 1025px) and (max-width: 1439px) {
+  // Pre Halalan  
+  @import './pre-halalan/960';
+
+  // Halalan Day
+  @import './halalan-day/960';
+
+  // Halalan Day B
+  @import './halalan-day-b/960';
+}
+
+/* Tablets  : 960 to 1439 */
+@media (min-width: $large) and (max-width: 1024px) {
+  
+  // Pre Halalan  
+  @import './pre-halalan/960';
+
+  // Halalan Day
+  @import './halalan-day/960';
+
+  // Halalan Day B
+  @import './halalan-day-b/960';
+}
+
+/* Mobiles (Landscape) : 768 to 959 */
+@media (min-width: $medium) and (max-width: $large - 1)  {
+  
+  // Pre Halalan  
+  @import './pre-halalan/768';
+  
+  // Halalan Day
+  @import './halalan-day/768';
+
+  // Halalan Day B
+  @import './halalan-day-b/768';
+
+  // Halalan Results
+  @import './halalan-results/768';
+}
+
+/* Mobiles (Portrait) : 321 to 767 */
+@media (min-width: $small ) and (max-width: $medium - 1){
+  
+  // Pre Halalan
+  @import './pre-halalan/420';
+  
+  // Halalan Day
+  @import './halalan-day/420';
+
+  // Halalan Day B
+  @import './halalan-day-b/420';
+
+  // Halalan Results
+  @import './halalan-results/420';
+}
+
+/* Mobiles (Portrait) : 320 to 767 */
+@media (min-width: 320px) and (max-width: $small - 1){
+  
+  // Pre Halalan
+  @import './pre-halalan/320';
+
+  // Halalan Day
+  @import './halalan-day/320';
+
+  // Halalan Day B
+  @import './halalan-day-b/320';
+}

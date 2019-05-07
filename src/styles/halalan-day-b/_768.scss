@@ -1,0 +1,21 @@
+.halalan-day-b-mobile-landscape {
+    display: block !important;
+}
+.phase-1 {
+
+    background: #ccc url('../images/halalan-day-b/768/bg.jpg') no-repeat;
+    background-size: cover;
+    width: 100%;
+    margin: 0;
+
+    .content-holder {
+        
+        
+        .right-content {
+            width: 300px;
+            .countdown-container {
+                border-bottom-right-radius : 10px;
+            }
+        }
+    }
+}

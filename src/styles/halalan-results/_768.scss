@@ -1,0 +1,131 @@
+.halalan-results-mobile-portrait {
+    display: block !important;
+}
+.halalan-results {
+
+    background: #ccc url('../images/halalan-results/768/bg.jpg') no-repeat;
+    background-size: cover;
+    height: 250px;
+    width: 100%;
+    margin: 0;
+  
+    .content-holder {
+        top: 25px;
+        width: 724px;
+        height: 200px;
+        background: #ccc url('../images/halalan-results/420/halalan-results-bg.jpg') no-repeat;
+        background-size: cover;
+        margin: 0 auto;
+        margin: 0 22px;
+        
+        
+        .left-content {
+            padding: 0 15px;
+            .header {
+                display: flex;
+                height: 75px;
+                .left {
+                    flex: 1;
+                    display: flex;
+                    align-items: center;
+
+                    .title {
+                        text-transform: uppercase;
+                        color: #36d581;
+                        font-size: 24px;
+                        font-family: $font-oswald;
+                        // width: 200px;
+                        padding-right: 10px;
+                    }
+                    .top {
+                        text-transform: uppercase;
+                        color: #fff;
+                        font-size: 24px;
+                        // width: 95px;
+                        font-family: $font-oswald;
+                        padding-right: 10px;
+                    }
+                    .er-percent {
+                        text-transform: uppercase;
+                        color: #fcd116;
+                        font-size: 14px;
+                        font-family: $font-oswald;
+                        // width: 228px;
+                        padding-right: 15px;
+                    }
+                    .partial {
+                        text-transform: uppercase;
+                        color: #fcd116;
+                        font-size: 10px;
+                        font-family: $font-opensans;
+                        font-weight: bold;
+                        width: 173px;
+                    }
+                }
+                .right {
+                    
+                    text-align: right;
+
+                    display: flex;
+                    align-items: center;
+
+                    .see-all {
+                        text-transform: uppercase;
+                        font-size: 16px;
+                        text-decoration: none;
+                        color: #36d581;
+                        cursor: pointer;
+                        font-family: $font-oswald;
+
+                        margin-bottom: 10px;
+
+                        .see-all-icon {
+                            font-weight: bold;
+                            font-size: 25px;
+                            position: relative;
+                            top: 4px;
+                        }
+                    }
+                }
+            }
+
+            .content-container {
+                .list { 
+                    -moz-column-count:3;
+                    -webkit-column-count:3;
+                    column-count:3;
+
+                    list-style: none;
+                    margin: 0;
+
+                    .list-content {
+                        display: flex;
+                        .name {
+                            padding: 0;
+                            line-height: 1.1;
+                            .count {
+                                text-align: left;
+                            }
+                            h4,span {
+                                font-size: 12px;
+                            }
+                        }
+                        .location { display: none; }
+                        .count {     
+                            text-align: right;
+                            margin-right: 5px;
+                            width: 26px;
+                            h5 {
+                                font-weight: 500;
+                            }
+                        }
+                    }
+                     
+                }
+                .footer {
+                    display: none;
+                }
+            }
+        }
+    } 
+}

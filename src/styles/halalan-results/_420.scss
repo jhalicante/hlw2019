@@ -1,0 +1,141 @@
+.halalan-results-mobile-portrait {
+    display: block !important;
+}
+.halalan-results {
+
+    background: #ccc url('../images/halalan-results/420/bg.jpg') no-repeat;
+    background-size: cover;
+    height: 340px;
+    width: 100%;
+    margin: 0;
+  
+    .content-holder {
+        top: 10px;
+        width: 400px;
+        height: 315px;
+        display: block;
+        margin: 0 auto;
+        
+        .left-content {
+            width: 400px;
+            height: 260px;
+            padding: 0;
+            
+            .header {
+                height: 36px;
+                padding: 0 14px;
+                .left {
+                    .top {
+                        color: #fff;
+                    }
+                    .er-percent {
+                        font-size: 14px;
+                    }
+                    .partial {
+                        display: none;
+                    }
+                }
+                .right {
+                    display: none;
+                }
+            }
+
+            .content-container {
+                .list {
+                    -moz-column-count:2;
+                    -webkit-column-count:2;
+                    column-count:2;
+                    list-style: none;
+                    padding: 0 15px;
+                    margin: 0;
+
+                    .list-content {
+                        display: block;
+                        margin-bottom: 7px;
+                        .name {
+                            padding: 0;
+                            line-height: 1.1;
+                            h4,span {
+                                font-size: 12px;
+                            }
+                        }
+                        .location { display: none; }
+                        .count {     
+                            text-align: right;
+                            margin-right: 5px;
+                            width: 26px;
+                            h5 {
+                                font-weight: 500;
+                            }
+                        }
+                    }
+                    
+                    li:nth-child(1),
+                    li:nth-child(2),
+                    li:nth-child(3),
+                    li:nth-child(4),
+                    li:nth-child(5),
+                    li:nth-child(6),
+                    li:nth-child(7),
+                    li:nth-child(8),
+                    li:nth-child(9),
+                    li:nth-child(10),
+                    li:nth-child(11),
+                    li:nth-child(12) {
+                        .name {
+                            .count {
+                                text-align: left;
+                            }
+                        }
+                        .votes {
+                            text-align: left;
+                            padding-left: 30px;
+                            span {
+                                font-weight: 400;
+                                font-size: 12px;
+                                position: relative;
+                                top: -3px;
+                            }
+                        }
+                    }
+                }
+                .footer {
+                    padding: 0 15px;
+                    display: flex;
+                    .left {
+                        h4 {
+                            text-align: left;
+                            text-transform: uppercase;
+                            color: #fcd116;
+                            font-size: 12px;
+                            font-family: $font-opensans;
+                            letter-spacing: 1.1px;
+                            line-height: 1.2;
+                            font-weight: 600;
+                        }
+                    }
+                    .right {
+                        flex: 1;
+                        text-align: right;
+                        .see-all {
+                            text-transform: uppercase;
+                            font-size: 16px;
+                            text-decoration: none;
+                            color: #36d581;
+                            font-family: $font-oswald;
+          
+                            margin-bottom: 10px;
+          
+                            .see-all-icon {
+                              font-weight: bold;
+                              font-size: 25px;
+                              position: relative;
+                              top: 4px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    } 
+}

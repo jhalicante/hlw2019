@@ -1,0 +1,45 @@
+.halalan-day-b-mobile-portrait {
+    display: flex !important;
+}
+.phase-1 {
+
+    background: #ccc url('../images/halalan-day-b/420/bg.jpg') no-repeat;
+    background-size: cover;
+    width: 100%;
+
+    .content-holder {
+
+        border-bottom-right-radius: 10px;
+          
+        .right-content {
+            .countdown-container {
+                .updates {
+                    width: 120px;
+                    height: 56px;
+                    border-right: 6px solid #074584;
+
+                    .updates-holder {
+                        width: 120px;
+                        height: 56px;
+
+                        .live-results-link {
+                            top: 25%;
+                        }
+                    }
+                    .icon-holder {
+                        .live-results-icon {
+                            position: relative;
+                            top: 35%;
+                        }
+                    }
+                }
+                .pc-text {
+                    width: 130px;
+                    border-radius: 0;
+                    border-bottom-right-radius: 10px;
+                    border-top-right-radius: 10px;
+                }
+            }
+        }
+    }
+}

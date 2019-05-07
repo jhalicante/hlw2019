@@ -1,0 +1,24 @@
+body {
+    padding: 0;
+    margin: 0;
+    font-family: $font-primary;
+    font-size: 14px;
+    // overflow: hidden;
+}
+.halalan-iframe {
+    display: block;
+    width: 100%;
+    height: 250px;
+}
+
+.halalan-holder {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+}
+
+.hide {
+    display: none !important;
+}
+

@@ -1,0 +1,30 @@
+{% extends "layout/index.nj" %}
+
+{% set page_title = "Halalan 2019" %}
+    
+{% block content %}
+
+    {# <div class="halalan-holder"> #}
+        {# <iframe id="halalan-widget-2019-iframe" class="halalan-widget-2019-iframe-desktop"  src="https://assets.abs-cbn.com/halalan/widget2019/halalan-widget-2019.html" frameborder="0"></iframe>
+        
+        <iframe id="halalan-widget-2019-iframe" class="halalan-widget-2019-iframe-mobile" src="https://assets.abs-cbn.com/halalan/widget2019/halalan-widget-2019.html" frameborder="0"></iframe> #}
+
+
+        {# <iframe id="halalan-widget-2019-iframe" class="halalan-widget-2019-iframe-desktop"  src="http://localhost:2019/halalan-widget-2019.html" frameborder="0"></iframe>
+        <iframe id="halalan-widget-2019-iframe" class="halalan-widget-2019-iframe-mobile" src="http://localhost:2019/halalan-widget-2019.html" frameborder="0"></iframe> #}
+
+
+    {# <iframe id="halalan-widget-2019-iframe" src="//halalan-widget.abs-cbnnews.com/iframe/widget.html" width=“100%” scrolling=“no” frameborder="0"></iframe> #}
+    <iframe id="halalan-widget-2019-iframe" src="widget.html" width=“100%” scrolling=“no” frameborder="0"></iframe>
+
+
+    {# </div> #}
+
+    <!-- <div class="halalan-holder">
+        <iframe class="halalan-iframe" src="./phase-2.html" frameborder="0"></iframe>
+    </div> -->
+
+    <!-- <div class="halalan-holder">
+        <iframe class="halalan-iframe" src="./phase-3.html" frameborder="0"></iframe>
+    </div>     -->
+{% endblock %}
