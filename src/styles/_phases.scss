@@ -176,6 +176,7 @@
               .live-results-link {
                 top: 38%;
                 color: #36d581;
+                margin-top: 28px;
               }
             }
             .icon-holder {
@@ -362,6 +363,12 @@
               h4 {
                 padding-right: 4px;
               }
+              span {
+                white-space: nowrap;
+              }
+              .splitted {
+                display: none;
+              }
             }
             .votes {
               text-align: right;
@@ -386,9 +393,10 @@
           li:nth-child(6),
           li:nth-child(7),
           li:nth-child(8) {
-            .votes {
-              text-align: center;
-            }
+            // .votes {
+            //   text-align: center;
+            // }
+            // padding-right: 50px;
           }
         }
       }

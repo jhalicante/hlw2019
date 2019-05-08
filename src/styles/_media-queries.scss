@@ -34,9 +34,12 @@ $xlarge : 1440px;
   }
 
   // Halalan Results 
-  .halalan-results-desktop {
-    display: block !important;
-  }
+  // .halalan-results-desktop {
+  //   display: block !important;
+  // }
+
+  // Halalan Results
+  @import './halalan-results//desktop';
 }
 
 /* XL Devices : 1025 instead 1440 */
@@ -62,6 +65,9 @@ $xlarge : 1440px;
 
   // Halalan Day B
   @import './halalan-day-b/960';
+
+  // Halalan Results
+  @import './halalan-results/960';
 }
 
 /* Mobiles (Landscape) : 768 to 959 */

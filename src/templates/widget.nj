@@ -15,9 +15,20 @@
     </style>
     <!-- END: STYLES -->
 
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KDVGXZ');</script>
+    <!-- End Google Tag Manager -->
+
 </head>
 <body>
-
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KDVGXZ"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <div class="phase-1 pre-halalan-widget-container hide">
         <div class="content-holder">
             <div class="left-content">
@@ -35,18 +46,18 @@
                 <div class="content-container rss-feed-content">
                     <!-- RSS FEED CONTENT GOES HERE -->
                     {% for i in range(0, 6) -%}
-                    <div class="teaser">
+                    {# <div class="teaser">
                         <div class="img-holder" style="background: #ccc url('src/images/rss-image.jpg') no-repeat;background-size: cover;">
                             <img src="src/images/rss-image.jpg" alt="">                    
                         </div>
                         <div class="content">
                             <p class="text-content">
-                                Roque says Senate bid withdrawal due to medical condition, not survey results 
-                                <b class="timestamp" href="">JUST NOW</b>
+                                .... 
+                                <b class="timestamp" href="">....</b>
                             </p>
                             
                         </div>
-                    </div>
+                    </div> #}
                     {%- endfor %}
                 </div>
             </div>

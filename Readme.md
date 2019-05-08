@@ -11,3 +11,30 @@ Blob Storage Credential for Halalan Widget:
 SETUP : 
  - `NPM INSTALL`
  - `GULP`
+
+
+ yan ung for news:
+    newshalwidget1
+    newshalwidget2
+    newshalwidget3
+    newshalwidget4
+
+
+ entertainment:
+    entertainmenthalwidget1
+    entertainmenthalwidget2
+    entertainmenthalwidget3
+    entertainmenthalwidget4
+
+lifestyle: 
+    lifestlyehalwidget1
+    lifestlyehalwidget2
+    lifestlyehalwidget3
+    lifestlyehalwidget4
+    
+sports:
+    sportshalwidget1
+    sportshalwidget2
+    sportshalwidget3
+    sportshalwidget4
+    

@@ -18,6 +18,130 @@
 </head>
 <body>
 
+    <div class="phase-1 pre-halalan-widget-container hide">
+        <div class="content-holder">
+            <div class="left-content">
+                <div class="header">
+                    <div class="left">
+                        <h1 class="latest-news">LATEST NEWS</h1>
+                    </div>
+                    <div class="right">
+                        <a href="https://news.abs-cbn.com/halalan2019" target="_blank" id="PreHalalanSeeAll" class="see-all hide">
+                            See all Halalan 2019 News
+                            <i class="see-all-icon fas fa-chevron-right"></i>
+                        </a> 
+                    </div>
+                </div>
+                <div class="content-container rss-feed-content">
+                    <!-- RSS FEED CONTENT GOES HERE -->
+                    {% for i in range(0, 6) -%}
+                    {# <div class="teaser">
+                        <div class="img-holder" style="background: #ccc url('src/images/rss-image.jpg') no-repeat;background-size: cover;">
+                            <img src="src/images/rss-image.jpg" alt="">                    
+                        </div>
+                        <div class="content">
+                            <p class="text-content">
+                                .... 
+                                <b class="timestamp" href="">....</b>
+                            </p>
+                            
+                        </div>
+                    </div> #}
+                    {%- endfor %}
+                </div>
+            </div>
+
+            {# Desktop #}
+            <div class="right-content pre-halalan-desktop hide">
+                <img src="src/images/halalan-logo.jpg" alt="">
+                <div class="countdown-container">
+                    <div class="days"><h3 class="pre-halalan-days-number">00</h3><span>DAYS</span></div>
+                    <div class="hours "><h3 class="halalan-day-hours-number">00</h3><span>HOURS</span></div>
+                    <div class="updates">
+                        <div class="updates-holder">
+                            <a href="https://news.abs-cbn.com/halalan2019" target="_blank" id="PreHalalanUpdates" class="updates-link">
+                                GET EXCLUSIVE<br>
+                                HALALAN 2019<br>
+                                UPDATES<br>
+                            </a>
+                        </div>
+                        <div class="icon-holder">
+                            <i class="updates-link-icon fas fa-chevron-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {# 960 #} 
+            <div class="right-content pre-halalan-tablet hide">
+                <img src="src/images/960/halalan-logo.jpg" alt="">
+                <div class="countdown-container">
+                    <div class="days"><h3 class="pre-halalan-days-number">00</h3><span>DAYS</span></div>
+                    <div class="hours "><h3 class="halalan-day-hours-number">00</h3><span>HOURS</span></div>
+                    <div class="updates">
+                        <div class="updates-holder">
+                            <a href="https://news.abs-cbn.com/halalan2019" target="_blank" id="PreHalalanUpdates" class="updates-link">
+                                GET EXCLUSIVE<br>
+                                HALALAN 2019<br>
+                                UPDATES<br>
+                            </a>
+                        </div>
+                        <div class="icon-holder">
+                            <i class="updates-link-icon fas fa-chevron-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {# 768 #}
+            <div class="right-content pre-halalan-mobile-landscape hide">
+                <img src="src/images/768/halalan-logo.jpg" alt="">
+                <div class="countdown-container">
+                    <div class="days"><h3 class="pre-halalan-days-number">00</h3><span>DAYS</span></div>
+                    <div class="hours "><h3 class="halalan-day-hours-number">00</h3><span>HOURS</span></div>
+                    <div class="updates">
+                        <div class="updates-holder">
+                            <a href="https://news.abs-cbn.com/halalan2019" target="_blank" id="PreHalalanUpdates" class="updates-link">
+                                GET EXCLUSIVE<br>
+                                HALALAN 2019<br>
+                                UPDATES<br>
+                            </a>
+                        </div>
+                        <div class="icon-holder">
+                            <i class="updates-link-icon fas fa-chevron-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {# 420 #}
+            <div class="right-content pre-halalan-mobile-portrait hide">
+                <img src="src/images/420/halalan-logo.jpg" alt="">
+                <div class="countdown-container">
+
+                    <div class="date-time">
+                        <div class="days"><h3 class="pre-halalan-days-number">00</h3><span>DAYS</span></div>
+                        <div class="hours "><h3 class="halalan-day-hours-number">00</h3><span>HOURS</span></div>
+                    </div>
+                    <div class="updates">
+                        <div class="updates-holder">
+                            <a href="https://news.abs-cbn.com/halalan2019" target="_blank" id="PreHalalanUpdates" class="updates-link">
+                                GET EXCLUSIVE
+                                HALALAN 2019
+                                UPDATES
+                            </a>
+                        </div>
+                        <div class="icon-holder">
+                            <i class="updates-link-icon fas fa-chevron-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
+    </div>
+
     <div class="phase-1 halalan-day-widget-container hide">
         <div class="content-holder">
             <div class="left-content">
@@ -242,7 +366,7 @@
         
     </div>
     
-    <div class="halalan-results halalan-results-widget-container phase-5">
+    <div class="halalan-results halalan-results-widget-container phase-5 hide">
         <div class="content-holder">
             <div class="left-content">
                 <div class="header">
@@ -263,7 +387,7 @@
 
                     <ul class="list senator-results">
                         {% for i in range(1, 13) -%}                        
-                        <li>
+                        {# <li>
                             <div class="list-content">
                                 
                                 <div class="name">
@@ -280,7 +404,7 @@
                                     <span>18,607,391</span>
                                 </div>
                             </div>
-                        </li>
+                        </li> #}
                         {%- endfor %} 
                     </ul>
 
@@ -305,6 +429,7 @@
     <!-- START: SCRIPTS -->
     <script>window.jQuery || document.write('<script src="src/scripts/vendor/jquery.min.js"><\/script>')</script>
     <script src="src/scripts/vendor/moment.min.js"></script>
+    <script src="http://api-newsapp.abs-cbn.com/socket.io/socket.io.js"></script>
     <script>
       var timestamp = new Date().getTime();
       var src = "src/scripts/master.min.js?timestamp="+timestamp;

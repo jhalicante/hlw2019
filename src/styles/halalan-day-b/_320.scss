@@ -90,6 +90,7 @@
 
                         .live-results-link {
                             top: 25%;
+                            margin-top: 10px;
                         }
                     }
                     .icon-holder {
@@ -105,6 +106,9 @@
                     line-height: 2.9;
                     border-bottom-right-radius: 0;
                     border-top-right-radius: 10px;
+                }
+                .pc-live-results {
+                    height: 56px;
                 }
             }
         }

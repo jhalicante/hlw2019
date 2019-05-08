@@ -45,11 +45,11 @@ var Halalan = (function() {
 						if(index == 6) { return false; }
 
 						var markup = '<div class="teaser">';
-								markup += '<div class="img-holder" style="background: #ccc url('+decodeURIComponent(image)+') no-repeat;background-size: cover;">';
+								markup += '<a href="'+link+'" target="_blank" id="thumb-'+index+'"><div class="img-holder" style="background: #ccc url('+decodeURIComponent(image)+') no-repeat;background-size: cover;">';
 									markup += '<img src="'+image+'" alt="">';
-								markup += '</div>';
+								markup += '</div></a>';
 								markup += '<div class="content">';
-									markup += '<a href="'+link+'" target="_blank">';
+									markup += '<a href="'+link+'" target="_blank" id="link-'+index+'">';
 										markup += '<p class="text-content">';
 											markup += title;
 											markup += ' <b class="timestamp" href="">'+moment(pubDate).startOf('hour').fromNow()+'</b>';
@@ -65,50 +65,7 @@ var Halalan = (function() {
 				error: function() {
 					console.error("An error occurred while processing XML file.");
 				}
-			});
-			// $.ajax({
-			// 	url: main.rssApiUrl,
-			// 	async: false,
-			// 	dataType: 'json',
-			// 	error: function(jqXHR, textStatus, errorThrown){
-			// 	  // Handle the error event
-			// 	  console.log(textStatus + "; " + errorThrown);
-			// 	},
-			// 	success: function (res) {
-
-			// 		console.log(res);
-			// 		jsonText = main.xmlToJson( res );
-					
-			// 		var item = jsonText.rss.channel.item;
-
-			// 		console.log(item);
-
-			// 		for (var j = 0; j < item.length; j++) {
-
-			// 			if(j === 6) 
-			// 				break;
-						
-			// 			var _res = item[j];
-						
-			// 			var markup = '<div class="teaser">';
-			// 					markup += '<div class="img-holder" style="background: #ccc url('+decodeURIComponent(_res.image['#text'])+') no-repeat;background-size: cover;">';
-			// 						markup += '<img src="'+_res.image['#text']+'" alt="">';
-			// 					markup += '</div>';
-			// 					markup += '<div class="content">';
-			// 						markup += '<a href="'+_res.link['#text']+'" target="_blank">';
-			// 							markup += '<p class="text-content">';
-			// 								markup += _res.title.__cdata;
-			// 								markup += ' <b class="timestamp" href="">'+moment(_res.pubDate).startOf('hour').fromNow()+'</b>';
-			// 							markup += '</p>';
-			// 						markup += '</a>';
-			// 					markup += '</div>';
-			// 				markup += '</div>';
-							
-			// 			$('.rss-feed-content').append(markup);
-						
-			// 		}
-			// 	}
-			// });
+			}); 
 		},
 
 		senatorResults : function() {
@@ -119,70 +76,85 @@ var Halalan = (function() {
 
 				socket.on('results', function (data) {
 					console.log(data);
-				});
 
-				// $.ajax({
-				// 	type : 'GET',
-				// 	crossDomain: true,
-				// 	url : main.resultsApiUrl,
-				// 	success : function(res) {
+					$('.senator-results').html('');
 
-				// 		console.log('senatorResults ',res.result);
-						
-				// 		if(res.result.length > 0 ) {
+					if(data.result.length > 0) {
+
 							
-				// 			var results = res.result,
-				// 					index = 0;
+							var results = data.result,
+								index = 0;
 
-				// 			for (var i = 0; i < results.length; i++) {
+							for (var i = 0; i < results.length; i++) {
 
-				// 				index++;
+								index++;
 
-				// 				if(i == 12) break;
+								if(i == 12) break;
 
-				// 				var candidateName,
-				// 						voteCount,
-				// 						partyName;
-
-				// 				// Check if candidateName is null or undefined
-				// 				if(results[i].candidateName != null || results[i].candidateName != undefined) {
-				// 					candidateName = results[i].candidateName;
-				// 				} else { candidateName = ''; }
-
-				// 				// Check if voteCount is null or undefined
-				// 				if(results[i].voteCount != null || results[i].voteCount != undefined) {
-				// 					voteCount = results[i].voteCount;
-				// 				} else { voteCount = 0; }
-
-				// 				// Check if partyName is null or undefined
-				// 				if(results[i].partyName != null || results[i].partyName != undefined) {
-				// 					partyName = results[i].partyName;
-				// 				} else { partyName = 'NPC'; }
-
+								var 
+									fname,
+									lname,
+									candidateName,
+									voteCount,	
+									partyName,
+									res;
 								
-				// 				var markup = '<li>';
-				// 						markup += '<div class="list-content">';
-				// 							markup += '<div class="count">';
-				// 								markup += '<h5>#'+index+'</h5>';
-				// 							markup += '</div>';
-				// 							markup += '<div class="name">';
-				// 								markup += '<h4>GATCHALIAN,</h4>';
-				// 								markup += '<span>Vicente</span>';
-				// 							markup += '</div>';
-				// 							markup += '<div class="location">';
-				// 								markup += '<span>('+partyName+')</span>';
-				// 							markup += '</div>';
-				// 							markup += '<div class="votes">';
-				// 								markup += '<span>'+main.comma(voteCount)+'</span>';
-				// 							markup += '</div>';
-				// 						markup += '</div>';
-				// 					markup += '</li>';
-				// 					$('.senator-results').append(markup);
+								res = results[i];
+
+								// Check if candidateName is null or undefined
+								if(res.candidateName != null || res.candidateName != undefined) {
 									
-				// 			}
-				// 		}
-				// 	}
-				// });
+									candidateName = results[i].candidateName.split(',');
+									
+									fname = candidateName[0];
+									lname = candidateName[1];
+								} else { 
+									fname = ''; 
+									lname = '';
+								}
+
+								// Check if voteCount is null or undefined
+								if(results[i].voteCount != null || results[i].voteCount != undefined) {
+									voteCount = results[i].voteCount;
+								} else { voteCount = 0; }
+
+								// Check if partyName is null or undefined
+								if(results[i].partyName != null || results[i].partyName != undefined) {
+									partyName = results[i].partyName;
+								} else { partyName = ''; }
+
+								var markup = '<li>';
+										markup += '<div class="list-content">';
+											markup += '<div class="count">';
+												markup += '<h5>#'+index+'</h5>';
+											markup += '</div>';
+											markup += '<div class="name">';
+												markup += '<div class="count">';
+													markup += '<h5>#'+index+'</h5>';
+												markup += '</div>';
+												markup += '<h4>'+fname.trim()+',</h4>';
+												
+												var concatedLname = lname.trim().split(' ');
+												if(concatedLname[1] == undefined) {
+													concatedLname[1] = '';
+												}
+
+												markup += '<span class="splitted">'+concatedLname[0]+' '+concatedLname[1]+'</span>';
+												markup += '<span class="not-splitted">'+lname.trim()+'</span>';
+											markup += '</div>';
+											markup += '<div class="location">';
+												markup += '<span>('+partyName+')</span>';
+											markup += '</div>';
+											markup += '<div class="votes">';
+												markup += '<span>'+main.comma(voteCount)+'</span>';
+											markup += '</div>';
+										markup += '</div>';
+									markup += '</li>';
+									$('.senator-results').append(markup);
+									
+							}
+					}
+				});
 			}					
 		},
 
@@ -256,10 +228,9 @@ var Halalan = (function() {
 
 		getSwitch : function() {
 
-			var widgets = ['halwidget1'];
-
-			for (var i = 0; i < widgets.length; i++) {
-				main.checkWidgetStatus(widgets[i]);
+			var newsWidgets = ['newshalwidget1'];
+			for (var i = 0; i < newsWidgets.length; i++) {
+				main.checkWidgetStatus(newsWidgets[i]);
 			}
 		},
 
@@ -273,31 +244,82 @@ var Halalan = (function() {
 				},
 				success : function(res) { 
 					if(res.switch != undefined ) {
-						if( res.switch.RowKey == "halwidget1" ) {
+						
+						var a = moment(new Date(),'M/D/YYYY');
+						var b = moment(new Date()+1,'M/D/YYYY');
+						
+						
+						var diffDays = b.diff(a, 'hours');
+
+
+						$('.pre-halalan-days-number').text(res.timetobreakTransformed.days);
+						$('.pre-halalan-hours-number').text(res.timetobreakTransformed.hours);
+						$('.pre-halalan-mins-number').text(res.timetobreakTransformed.minutes);
+
+						$('.halalan-day-hours-number').text(res.timetobreakTransformed.hours);
+						$('.halalan-day-mins-number').text(res.timetobreakTransformed.minutes);
+
+						if(res.timetobreakTransformed.days <= 1) {
+							$('.pre-halalan-days-text').text('DAY');
+						}
+						if(res.timetobreakTransformed.hours <= 1) {
+							$('.pre-halalan-hours-text').text('HOUR');
+						}
+
+						// NEWS WIDGET HANDLING
+						if( res.switch.RowKey == "newshalwidget1" && res.switch.Status == "ON" ) {
 							$('.pre-halalan-widget-container').removeClass('hide');
+						}
+						if( res.switch.RowKey == "newshalwidget2" && res.switch.Status == "ON" ) {
+							$('.pre-halalan-widget-container').removeClass('hide');
+						}
+						if( res.switch.RowKey == "newshalwidget3" && res.switch.Status == "ON" ) {
+							$('.halalan-day-widget-container').removeClass('hide');
+						}
+						if( res.switch.RowKey == "newshalwidget4" && res.switch.Status == "ON" ) {
+							$('.halalan-day-b-widget-container').removeClass('hide');
+						}
 
+						// ENTERTAINMENT WIDGET HANDLING
+						if( res.switch.RowKey == "entertainmenthalwidget1" && res.switch.Status == "ON" ) {
+							$('.pre-halalan-widget-container').removeClass('hide');
+						}
+						if( res.switch.RowKey == "entertainmenthalwidget2" && res.switch.Status == "ON" ) {
+							$('.halalan-day-widget-container').removeClass('hide');
+						}
+						if( res.switch.RowKey == "entertainmenthalwidget3" && res.switch.Status == "ON" ) {
+							$('.halalan-day-b-widget-container').removeClass('hide');
+						}
+						if( res.switch.RowKey == "entertainmenthalwidget4" && res.switch.Status == "ON" ) {
+							$('.halalan-results-widget-container').removeClass('hide');
+						}
 
-							var a = moment(new Date(),'M/D/YYYY');
-							var b = moment(new Date()+1,'M/D/YYYY');
-							
-							
-							var diffDays = b.diff(a, 'hours');
+						// LIFESTYLE WIDGET HANDLING
+						if( res.switch.RowKey == "lifestlyehalwidget1" && res.switch.Status == "ON" ) {
+							$('.pre-halalan-widget-container').removeClass('hide');
+						}
+						if( res.switch.RowKey == "lifestlyehalwidget2" && res.switch.Status == "ON" ) {
+							$('.halalan-day-widget-container').removeClass('hide');
+						}
+						if( res.switch.RowKey == "lifestlyehalwidget3" && res.switch.Status == "ON" ) {
+							$('.halalan-day-b-widget-container').removeClass('hide');
+						}
+						if( res.switch.RowKey == "lifestlyehalwidget4" && res.switch.Status == "ON" ) {
+							$('.halalan-results-widget-container').removeClass('hide');
+						}
 
-
-							$('.pre-halalan-days-number').text(res.timetobreakTransformed.days);
-							$('.pre-halalan-hours-number').text(res.timetobreakTransformed.hours);
-							$('.pre-halalan-mins-number').text(res.timetobreakTransformed.minutes);
-
-							$('.halalan-day-hours-number').text(res.timetobreakTransformed.hours);
-							$('.halalan-day-mins-number').text(res.timetobreakTransformed.minutes);
-
-							if(res.timetobreakTransformed.days <= 1) {
-								$('.pre-halalan-days-text').text('DAY');
-							}
-
-							if(res.timetobreakTransformed.hours <= 1) {
-								$('.pre-halalan-hours-text').text('HOUR');
-							}
+						// SPORTS WIDGET HANDLING
+						if( res.switch.RowKey == "sportshalwidget1" && res.switch.Status == "ON" ) {
+							$('.pre-halalan-widget-container').removeClass('hide');
+						}
+						if( res.switch.RowKey == "sportshalwidget2" && res.switch.Status == "ON" ) {
+							$('.halalan-day-widget-container').removeClass('hide');
+						}
+						if( res.switch.RowKey == "sportshalwidget3" && res.switch.Status == "ON" ) {
+							$('.halalan-day-b-widget-container').removeClass('hide');
+						}
+						if( res.switch.RowKey == "sportshalwidget4" && res.switch.Status == "ON" ) {
+							$('.halalan-results-widget-container').removeClass('hide');
 						}
 					}
 				}

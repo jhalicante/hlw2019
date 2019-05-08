@@ -55,18 +55,28 @@
                         .name {
                             padding: 0;
                             line-height: 1.1;
+                            .count {     
+                                display: block;
+                                text-align: right;
+                                margin-right: 5px;
+                                width: 26px;
+                                h5 {
+                                    font-weight: 500;
+                                }
+                            }
                             h4,span {
                                 font-size: 12px;
+                            }
+                            .splitted {
+                                display: block;
+                            }
+                            .not-splitted {
+                                display: none;
                             }
                         }
                         .location { display: none; }
                         .count {     
-                            text-align: right;
-                            margin-right: 5px;
-                            width: 26px;
-                            h5 {
-                                font-weight: 500;
-                            }
+                            display: none;
                         }
                     }
                     
