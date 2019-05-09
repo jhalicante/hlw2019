@@ -9,12 +9,10 @@ var Halalan = (function() {
 	'use strict';
 
 	function init() {
-		if( $('#halalan-widget-2019-iframe').length > 0 ) {
-			main.RSSFeed();
-			main.animatePreloader();
-			main.senatorResults();
-			main.getSwitch();
-		}
+		main.RSSFeed();
+		main.animatePreloader();
+		main.senatorResults();
+		main.getSwitch();
 	}
 
 	var main = {
@@ -136,21 +134,21 @@ var Halalan = (function() {
 												markup += '<div class="count">';
 													markup += '<h5>#'+index+'</h5>';
 												markup += '</div>';
-												markup += '<h4>'+fname.trim()+',</h4>';
+												markup += '<h4>'+fname.trim().toLowerCase()+',</h4>';
 												
 												var concatedLname = lname.trim().split(' ');
 												if(concatedLname[1] == undefined) {
 													concatedLname[1] = '';
 												}
 
-												markup += '<span class="splitted">'+concatedLname[0]+' '+concatedLname[1]+'</span>';
-												markup += '<span class="not-splitted">'+lname.trim()+'</span>';
+												markup += '<span class="splitted">'+concatedLname[0].toLowerCase()+' '+concatedLname[1].toLowerCase()+'</span>';
+												markup += '<span class="not-splitted">'+lname.trim().toLowerCase()+'</span>';
 												markup += '<div class="location">';
-													markup += '<span>('+partyName+')</span>';
+													markup += '<span>('+partyName.toLowerCase()+')</span>';
 												markup += '</div>';
 											markup += '</div>';
 											markup += '<div class="location">';
-												markup += '<span>('+partyName+')</span>';
+												markup += '<span>('+partyName.toLowerCase()+')</span>';
 											markup += '</div>';
 											markup += '<div class="votes">';
 												markup += '<span>'+main.comma(voteCount)+'</span>';
@@ -280,7 +278,7 @@ var Halalan = (function() {
 
 						var parentUrl = (window.location != window.parent.location) ? document.referrer : document.location.href;
 						
-						parentUrl = 'http://dev-entertainment.abs-cbn.com/';
+						// parentUrl = 'http://dev-entertainment.abs-cbn.com/';
 
 						console.log('Site ', parentUrl);
 

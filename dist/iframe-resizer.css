@@ -7,6 +7,10 @@ body {
     padding: 0;
 }
 
+.no-padding-hw {
+    padding: 0;
+}
+
 #halalan-widget-2019-iframe {
     min-width: 100%;
 }

@@ -27,6 +27,8 @@ var HalalanSwitchWidget = (function() {
 
 				var parentUrl = window.location.hostname;
 
+				console.error(parentUrl);
+
 				// NEWS WIDGET HANDLING
 				if(parentUrl == 'newsstaging.abs-cbnnews.com')  {
 					main.checkWidgetStatus(widgetsRowKey[i]);					
@@ -55,10 +57,11 @@ var HalalanSwitchWidget = (function() {
 					xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key",main.ocpKey);
 				},
 				success : function(res) { 
-					if(res.switch != undefined ) {
-						if( res.switch.Status == "OFF" ) {
-							$('#halalan-widget-2019-iframe').remove();
-						} 
+					
+					console.error('res.switch.Status ', res.switch.Status);
+
+					if( res.switch.Status == "OFF" ) {
+						$('#halalan-widget-2019-iframe').remove();
 					}
 				}
 			});
