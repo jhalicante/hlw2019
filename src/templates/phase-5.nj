@@ -44,6 +44,9 @@
                                     <h5>#{{i}}</h5>
                                 </div>
                                 <div class="name">
+                                    <div class="count">
+                                        <h5>#{{i}}</h5>
+                                    </div>
                                     <h4>SOTTO,</h4>
                                     <span>Vicente</span>
                                 </div>

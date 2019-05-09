@@ -1,4 +1,4 @@
-.pre-halalan-tablet {
+.halalan-day-tablet {
     display: block !important;
 }
 .phase-1 {
@@ -64,7 +64,7 @@
                     .content {
                         margin-right: 0;
                         .text-content {
-                            font-size: 12px;
+                            font-size: 14px;
                         }
                     }
                 }
@@ -80,6 +80,10 @@
         
         .right-content {
             width: 300px;
+
+            .countdown-container {
+                background-color: transparent;
+            }
         }
     }
 }

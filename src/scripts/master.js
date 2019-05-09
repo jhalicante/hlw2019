@@ -52,8 +52,8 @@ var Halalan = (function() {
 									markup += '<a href="'+link+'" target="_blank" id="link-'+index+'">';
 										markup += '<p class="text-content">';
 											markup += title;
-											markup += ' <b class="timestamp" href="">'+moment(pubDate).startOf('hour').fromNow()+'</b>';
 										markup += '</p>';
+										markup += ' <b class="timestamp">'+moment(pubDate).startOf('hour').fromNow()+'</b>';
 									markup += '</a>';
 								markup += '</div>';
 							markup += '</div>';
@@ -72,7 +72,7 @@ var Halalan = (function() {
 
 			if( $('.senator-results').length > 0 ) {
 
-				var socket = io(main.socketHostUrl);
+				var socket = io(main.socketHostUrl,{'transports': ['websocket', 'polling']});
 
 				socket.on('results', function (data) {
 					console.log(data);
@@ -292,7 +292,7 @@ var Halalan = (function() {
 						console.log('Res:: ',res.switch.RowKey+' II '+res.switch.Status == "ON");
 
 						// NEWS WIDGET HANDLING
-						if($('.uninav-news').length>0)  {
+						if(parentUrl == 'https://newsstaging.abs-cbnnews.com/')  {
 							if( res.switch.RowKey == "newshalwidget1" && res.switch.Status == "ON" ) {
 								$('.pre-halalan-widget-container').removeClass('hide');
 							}
@@ -341,7 +341,7 @@ var Halalan = (function() {
 						}
 
 						// SPORTS WIDGET HANDLING
-						if($('.uninav-sports').length>0)  {
+						if(parentUrl == 'http://dev-sports.abs-cbn.com/')  {
 							if( res.switch.RowKey == "sportshalwidget1" && res.switch.Status == "ON" ) {
 								$('.pre-halalan-widget-container').removeClass('hide');
 							}

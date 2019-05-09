@@ -1,4 +1,4 @@
-.pre-halalan-tablet {
+.pre-halalan-mobile-landscape {
     display: block !important;
 }
 .phase-1 {
@@ -16,18 +16,18 @@
         background: #fff;
         margin: 0 auto;
         
-        width: 920px;
+        width: 1024px;
         height: 200px;
         top: 20px;
 
         .left-content {
             
             padding: 0;
-            width: 620px;
+            // width: 620px;
 
             .header {
                 height: 44px;
-                padding: 0 20px;
+                padding: 0 5px;
                 .left {
                     align-items: center;
                     line-height: 1.8;
@@ -53,18 +53,24 @@
                 -webkit-align-items: stretch;
                 align-items: stretch;
 
-                padding-left: 20px;
-                padding-right: 20px;
+                padding-left: 5px;
+                padding-right: 5px;
 
                 .teaser {
                     display: none;
                     margin-bottom: 10px;
-                    width: (100%/2);
-
+                    width: (100%/3);
+                    .img-holder {
+                        height: 63px;
+                        width: 84px;
+                    }
                     .content {
                         margin-right: 0;
                         .text-content {
                             font-size: 12px;
+                        }
+                        .timestamp {
+                            font-size: 10px;
                         }
                     }
                 }
@@ -72,7 +78,9 @@
                 .teaser:nth-child(1),
                 .teaser:nth-child(2),
                 .teaser:nth-child(3),
-                .teaser:nth-child(4) {
+                .teaser:nth-child(4),
+                .teaser:nth-child(5),
+                .teaser:nth-child(6) {
                     display: flex;
                 }
             }

@@ -39,23 +39,26 @@ $xlarge : 1440px;
   // }
 
   // Halalan Results
-  @import './halalan-results//desktop';
+  @import './halalan-results/desktop';
 }
 
 /* XL Devices : 1025 instead 1440 */
-// @media (min-width: 1025px) and (max-width: 1279px) {
-//   // Pre Halalan  
-//   @import './pre-halalan/960';
+@media (min-width: 1024px) and (max-width: 1279px) {
+  // Pre Halalan  
+  @import './pre-halalan/1024';
 
-//   // Halalan Day
-//   @import './halalan-day/960';
+  // Halalan Day
+  // @import './halalan-day/960';
 
-//   // Halalan Day B
-//   @import './halalan-day-b/960';
-// }
+  // // Halalan Day B
+  // @import './halalan-day-b/960';
+
+  // // Halalan Results
+  // @import './halalan-results/960';
+}
 
 /* Tablets  : 960 to 1439 */
-@media (min-width: $large) and (max-width: 1024px) {
+@media (min-width: $large) and (max-width: 1023px) {
   
   // Pre Halalan  
   @import './pre-halalan/960';

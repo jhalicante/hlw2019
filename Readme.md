@@ -12,6 +12,10 @@ SETUP :
  - `NPM INSTALL`
  - `GULP`
 
+Preview : 
+    localhost:2019/
+    localhost:2019/widget-results.html
+
 
  yan ung for news:
     newshalwidget1

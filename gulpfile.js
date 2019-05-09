@@ -38,7 +38,7 @@ gulp.task('styles', function () {
 		}))
 		.pipe(autoprefixer('last 3 versions'))
 		.pipe(concat('master.min.css'))
-		.pipe(gulp.dest('src/styles'))
+		.pipe(gulp.dest('src/styles/'))
 		.pipe(browserSync.stream());
 });
 
