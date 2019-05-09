@@ -34,6 +34,7 @@
                     }
                     .er-percent {
                         font-size: 14px;
+                        padding-right: 0;
                     }
                     .partial {
                         display: none;
@@ -78,6 +79,7 @@
                             .not-splitted {
                                 display: none;
                             }
+                            .location { display: none; }                            
                         }
                         .location { display: none; }
                         .count {     

@@ -17,7 +17,7 @@
         <div class="title-content"></div>
         <div class="year-content"></div>
     </div> #}
-    <div class="halalan-results phase-5">
+    <div class="halalan-resultsss phase-5s hide">
         <div class="content-holder">
             <div class="left-content">
                 <div class="header">
@@ -60,6 +60,334 @@
                         </li>
                         {%- endfor %} 
                     </ul>
+                    
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+     <div class="halalan-results halalan-results-widget-container phase-5 ">
+        <div class="content-holder">
+            <div class="left-content">
+                <div class="header">
+                    <div class="left">
+                        <h3 class="title">HALALAN 2019</h3>
+                        <h3 class="top">TOP 12</h3>
+                        <h4 class="er-percent">Election returns: <span class="percent-results">00</span>%</h4>
+                        <h4 class="partial">Partial & Unofficial Results as of 04:50 PM MAY 19, 2019</h4>
+                    </div>
+                    <div class="right">
+                        <a href="https://halalanresults.abs-cbn.com/" target="_blank" id="halalan-day-c-see-results" class="see-all">
+                            VIEW LIVE RESULTS
+                            <i class="see-all-icon fas fa-chevron-right"></i>
+                        </a> 
+                    </div>
+                </div>
+                <div class="content-container">
+
+                    <ul class="list senator-results">
+                        <li>
+                            <div class="list-content">
+                                <div class="count">
+                                    <h5>#1</h5>
+                                </div>
+                                <div class="name">
+                                    <div class="count">
+                                        <h5>#1</h5>
+                                    </div>
+                                    <h4>AQUINO,</h4>
+                                    <span class="splitted">BENIGNO BAM</span>
+                                    <span class="not-splitted">BENIGNO BAM</span>
+                                    <div class="location">
+                                        <span>(LP)</span>
+                                    </div>
+                                </div>
+                                <div class="location">
+                                    <span>(LP)</span>
+                                </div>
+                                <div class="votes">
+                                    <span>77,942</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="list-content">
+                                <div class="count">
+                                    <h5>#2</h5>
+                                </div>
+                                <div class="name">
+                                    <div class="count">
+                                        <h5>#2</h5>
+                                    </div>
+                                    <h4>ARCEGA,</h4>
+                                    <span class="splitted">GERALD </span>
+                                    <span class="not-splitted">GERALD</span>
+                                    <div class="location">
+                                        <span>(LP)</span>
+                                    </div>
+                                </div>
+                                <div class="location">
+                                    <span>(WPP)</span>
+                                </div>
+                                <div class="votes">
+                                    <span>77,926</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="list-content">
+                                <div class="count">
+                                    <h5>#3</h5>
+                                </div>
+                                <div class="name">
+                                    <div class="count">
+                                        <h5>#3</h5>
+                                    </div>
+                                    <h4>ARELLANO,</h4>
+                                    <span class="splitted">ERNESTO </span>
+                                    <span class="not-splitted">ERNESTO</span>
+                                    <div class="location">
+                                        <span>(LP)</span>
+                                    </div>
+                                </div>
+                                <div class="location">
+                                    <span>(IND)</span>
+                                </div>
+                                <div class="votes">
+                                    <span>77,720</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="list-content">
+                                <div class="count">
+                                    <h5>#4</h5>
+                                </div>
+                                <div class="name">
+                                    <div class="count">
+                                        <h5>#4</h5>
+                                    </div>
+                                    <h4>ARIAS,</h4>
+                                    <span class="splitted">MARCELINO </span>
+                                    <span class="not-splitted">MARCELINO</span>
+                                    <div class="location">
+                                        <span>(LP)</span>
+                                    </div>
+                                </div>
+                                <div class="location">
+                                    <span>(WPP)</span>
+                                </div>
+                                <div class="votes">
+                                    <span>77,716</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="list-content">
+                                <div class="count">
+                                    <h5>#5</h5>
+                                </div>
+                                <div class="name">
+                                    <div class="count">
+                                        <h5>#5</h5>
+                                    </div>
+                                    <h4>ALUNAN,</h4>
+                                    <span class="splitted">RAFFY </span>
+                                    <span class="not-splitted">RAFFY</span>
+                                    <div class="location">
+                                        <span>(LP)</span>
+                                    </div>
+                                </div>
+                                <div class="location">
+                                    <span>(BGMBYN)</span>
+                                </div>
+                                <div class="votes">
+                                    <span>77,463</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="list-content">
+                                <div class="count">
+                                    <h5>#6</h5>
+                                </div>
+                                <div class="name">
+                                    <div class="count">
+                                        <h5>#6</h5>
+                                    </div>
+                                    <h4>ANGARA,</h4>
+                                    <span class="splitted">EDGARDO SONNY</span>
+                                    <span class="not-splitted">EDGARDO SONNY</span>
+                                    <div class="location">
+                                        <span>(LP)</span>
+                                    </div>
+                                </div>
+                                <div class="location">
+                                    <span>(LDP)</span>
+                                </div>
+                                <div class="votes">
+                                    <span>77,437</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="list-content">
+                                <div class="count">
+                                    <h5>#7</h5>
+                                </div>
+                                <div class="name">
+                                    <div class="count">
+                                        <h5>#7</h5>
+                                    </div>
+                                    <h4>ALEJANO,</h4>
+                                    <span class="splitted">GARY </span>
+                                    <span class="not-splitted">GARY</span>
+                                    <div class="location">
+                                        <span>(LP)</span>
+                                    </div>
+                                </div>
+                                <div class="location">
+                                    <span>(LP)</span>
+                                </div>
+                                <div class="votes">
+                                    <span>76,992</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="list-content">
+                                <div class="count">
+                                    <h5>#8</h5>
+                                </div>
+                                <div class="name">
+                                    <div class="count">
+                                        <h5>#8</h5>
+                                    </div>
+                                    <h4>ALFAJORA,</h4>
+                                    <span class="splitted">RICHARD </span>
+                                    <span class="not-splitted">RICHARD</span>
+                                    <div class="location">
+                                        <span>(LP)</span>
+                                    </div>
+                                </div>
+                                <div class="location">
+                                    <span>(IND)</span>
+                                </div>
+                                <div class="votes">
+                                    <span>76,878</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="list-content">
+                                <div class="count">
+                                    <h5>#9</h5>
+                                </div>
+                                <div class="name">
+                                    <div class="count">
+                                        <h5>#9</h5>
+                                    </div>
+                                    <h4>ALBANI,</h4>
+                                    <span class="splitted">SHARIFF </span>
+                                    <span class="not-splitted">SHARIFF</span>
+                                    <div class="location">
+                                        <span>(LP)</span>
+                                    </div>
+                                </div>
+                                <div class="location">
+                                    <span>(WPP)</span>
+                                </div>
+                                <div class="votes">
+                                    <span>76,769</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="list-content">
+                                <div class="count">
+                                    <h5>#10</h5>
+                                </div>
+                                <div class="name">
+                                    <div class="count">
+                                        <h5>#10</h5>
+                                    </div>
+                                    <h4>AGUILAR,</h4>
+                                    <span class="splitted">FREDDIE </span>
+                                    <span class="not-splitted">FREDDIE</span>
+                                    <div class="location">
+                                        <span>(LP)</span>
+                                    </div>
+                                </div>
+                                <div class="location">
+                                    <span>(IND)</span>
+                                </div>
+                                <div class="votes">
+                                    <span>76,720</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="list-content">
+                                <div class="count">
+                                    <h5>#11</h5>
+                                </div>
+                                <div class="name">
+                                    <div class="count">
+                                        <h5>#11</h5>
+                                    </div>
+                                    <h4>AFUANG,</h4>
+                                    <span class="splitted">ABNER </span>
+                                    <span class="not-splitted">ABNER</span>
+                                    <div class="location">
+                                        <span>(LP)</span>
+                                    </div>
+                                </div>
+                                <div class="location">
+                                    <span>(WPP)</span>
+                                </div>
+                                <div class="votes">
+                                    <span>74,354</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="list-content">
+                                <div class="count">
+                                    <h5>#12</h5>
+                                </div>
+                                <div class="name">
+                                    <div class="count">
+                                        <h5>#12</h5>
+                                    </div>
+                                    <h4>ABEJO,</h4>
+                                    <span class="splitted">VANGIE </span>
+                                    <span class="not-splitted">VANGIE</span>
+                                    <div class="location">
+                                        <span>(LP)</span>
+                                    </div>
+                                </div>
+                                <div class="location">
+                                    <span>(IND)</span>
+                                </div>
+                                <div class="votes">
+                                    <span>74,252</span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <div class="footer">
+                        <div class="left">
+                            <h4 class="partial">Partial & Unofficial Results<br>as of 04:50 PM MAY 19, 2019</h4>
+                        </div>
+                        <div class="right">
+                            <a href="https://halalanresults.abs-cbn.com/" target="_blank" id="halalan-day-c-see-results" class="see-all">
+                                VIEW LIVE RESULTS
+                                <i class="see-all-icon fas fa-chevron-right"></i>
+                            </a> 
+                        </div>
+                    </div>
                     
                 </div>
             </div>

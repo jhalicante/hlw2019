@@ -68,7 +68,7 @@
             align-items: stretch;
 
             .teaser {
-                display: flex;
+                display:flex;
                 width: (100%/3);
                 margin-bottom: 10px;
                 .img-holder {
@@ -91,6 +91,7 @@
                         font-weight: 600;  
                         font-size: 12px;  
                         margin-left: 10px;
+                        text-transform: uppercase;
                     }
                 }
             }
@@ -140,7 +141,7 @@
               margin-top: 10px;
               line-height: 1;
               font-size: 32px;
-              font-weight: 600;
+              font-weight: 700;
               color: #000;
               text-transform: uppercase;
               font-family: $font-opensans;
@@ -377,14 +378,19 @@
               .splitted {
                 display: none;
               }
+              .location {
+                display: block;
+                margin-left: 10px;
+              }
             }
             .location {
-              display: flex;
+              display: none;
               width: 30px
             }
             .votes {
               text-align: right;
-              width: 100%;
+              // width: 100%;
+              flex: 1;
               font-weight: 600;
             }
 
@@ -405,9 +411,10 @@
           li:nth-child(6),
           li:nth-child(7),
           li:nth-child(8) {
-            // .votes {
-            //   text-align: center;
-            // }
+            .votes {
+              // text-align: center;
+              padding-right: 50px;
+            }
             // padding-right: 50px;
           }
         }

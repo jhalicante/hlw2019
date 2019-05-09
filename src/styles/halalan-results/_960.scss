@@ -98,7 +98,7 @@
                             padding: 0;
                             line-height: 1.1;
                             .count {
-                                display: none;
+                                display: block;
                                 text-align: left;
                             }
                             h4,span {
@@ -110,15 +110,29 @@
                             .not-splitted {
                                 display: none;
                             }
+                            .location { display: none; }
                         }
                         .location { display: none; }
                         .count {     
                             text-align: right;
                             margin-right: 5px;
                             width: 26px;
+                            display: none;                            
                             h5 {
                                 font-weight: 500;
                             }
+                        }
+                    }
+                    li:nth-child(1),
+                    li:nth-child(2),
+                    li:nth-child(3),
+                    li:nth-child(4),
+                    li:nth-child(5),
+                    li:nth-child(6),
+                    li:nth-child(7),
+                    li:nth-child(8) {
+                        .votes {
+                            padding-right: 0;
                         }
                     }
                      

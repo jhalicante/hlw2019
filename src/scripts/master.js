@@ -9,10 +9,12 @@ var Halalan = (function() {
 	'use strict';
 
 	function init() {
-		main.RSSFeed();
-		main.animatePreloader();
-		main.senatorResults();
-		main.getSwitch();
+		if( $('#halalan-widget-2019-iframe').length > 0 ) {
+			main.RSSFeed();
+			main.animatePreloader();
+			main.senatorResults();
+			main.getSwitch();
+		}
 	}
 
 	var main = {
@@ -85,6 +87,8 @@ var Halalan = (function() {
 							var results = data.result,
 								index = 0;
 
+							$('.percent-results').html(data.er.percentage);
+
 							for (var i = 0; i < results.length; i++) {
 
 								index++;
@@ -141,6 +145,9 @@ var Halalan = (function() {
 
 												markup += '<span class="splitted">'+concatedLname[0]+' '+concatedLname[1]+'</span>';
 												markup += '<span class="not-splitted">'+lname.trim()+'</span>';
+												markup += '<div class="location">';
+													markup += '<span>('+partyName+')</span>';
+												markup += '</div>';
 											markup += '</div>';
 											markup += '<div class="location">';
 												markup += '<span>('+partyName+')</span>';
@@ -272,8 +279,10 @@ var Halalan = (function() {
 						var diffDays = b.diff(a, 'hours');
 
 						var parentUrl = (window.location != window.parent.location) ? document.referrer : document.location.href;
-
+						
 						parentUrl = 'http://dev-entertainment.abs-cbn.com/';
+
+						console.log('Site ', parentUrl);
 
 						$('.pre-halalan-days-number').text(res.timetobreakTransformed.days);
 						$('.pre-halalan-hours-number').text(res.timetobreakTransformed.hours);
@@ -292,7 +301,18 @@ var Halalan = (function() {
 						console.log('Res:: ',res.switch.RowKey+' II '+res.switch.Status == "ON");
 
 						// NEWS WIDGET HANDLING
-						if(parentUrl == 'https://newsstaging.abs-cbnnews.com/')  {
+						if(
+							parentUrl == 'https://newsstaging.abs-cbnnews.com/' ||
+							parentUrl == 'https://newsstaging.abs-cbnnews.com/news' ||
+							parentUrl == 'https://newsstaging.abs-cbnnews.com/business' ||
+							parentUrl == 'https://newsstaging.abs-cbnnews.com/entertainment' ||
+							parentUrl == 'https://newsstaging.abs-cbnnews.com/life' ||
+							parentUrl == 'https://newsstaging.abs-cbnnews.com/sports' ||
+							parentUrl == 'https://newsstaging.abs-cbnnews.com/spotlight' ||
+							parentUrl == 'https://newsstaging.abs-cbnnews.com/trending' ||
+							parentUrl == 'https://newsstaging.abs-cbnnews.com/classified-odd' ||
+							parentUrl == 'https://newsstaging.abs-cbnnews.com/opinions'
+						)  {
 							if( res.switch.RowKey == "newshalwidget1" && res.switch.Status == "ON" ) {
 								$('.pre-halalan-widget-container').removeClass('hide');
 							}
@@ -306,7 +326,6 @@ var Halalan = (function() {
 								$('.halalan-day-b-widget-container').removeClass('hide');
 							}
 						}
-
 
 						// ENTERTAINMENT WIDGET HANDLING
 						if(parentUrl == 'http://dev-entertainment.abs-cbn.com/')  {
@@ -341,7 +360,7 @@ var Halalan = (function() {
 						}
 
 						// SPORTS WIDGET HANDLING
-						if(parentUrl == 'http://dev-sports.abs-cbn.com/')  {
+						if(parentUrl == 'https://dev-sports.abs-cbn.com/')  {
 							if( res.switch.RowKey == "sportshalwidget1" && res.switch.Status == "ON" ) {
 								$('.pre-halalan-widget-container').removeClass('hide');
 							}

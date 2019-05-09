@@ -12,6 +12,16 @@
         border-bottom-right-radius: 10px;
           
         .right-content {
+            .countdown-container {
+                .date-time {
+                    .days, .hours {
+                        h3 {
+                            margin-top: 15px;
+                            font-size: 20.61pt;
+                        }
+                    }
+                }
+            }
             .polls-container {
                 .polls {
                     width: 130px;

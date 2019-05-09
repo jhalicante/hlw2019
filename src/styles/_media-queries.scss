@@ -34,27 +34,50 @@ $xlarge : 1440px;
   }
 
   // Halalan Results 
-  // .halalan-results-desktop {
-  //   display: block !important;
-  // }
+  .halalan-results {
+    .content-holder {
+      .left-content { 
+        .content-container {
+          .list { 
+            .list-content {
+              .name {
+                .count {
+                  line-height: 1;
+                  display: none;
+                }
+              }
+              .count {
+                display: block;
+              }
+            }
+          }
+          
+        }
+
+      }
+
+    }
+    
+  }
 
   // Halalan Results
-  @import './halalan-results/desktop';
+  // @import './halalan-results/1024';
 }
-
-/* XL Devices : 1025 instead 1440 */
+ 
+/* XL Devices : 1024 instead 1279 */
 @media (min-width: 1024px) and (max-width: 1279px) {
   // Pre Halalan  
   @import './pre-halalan/1024';
 
   // Halalan Day
-  // @import './halalan-day/960';
+  @import './halalan-day/1024';
 
-  // // Halalan Day B
-  // @import './halalan-day-b/960';
+  // Halalan Day B
+  @import './halalan-day-b/1024';
 
-  // // Halalan Results
-  // @import './halalan-results/960';
+
+  // Halalan Results
+  @import './halalan-results/1024';
 }
 
 /* Tablets  : 960 to 1439 */
@@ -89,7 +112,7 @@ $xlarge : 1440px;
   @import './halalan-results/768';
 }
 
-/* Mobiles (Portrait) : 321 to 767 */
+/* Mobiles (Portrait) : 420 to 767 */
 @media (min-width: $small ) and (max-width: $medium - 1){
   
   // Pre Halalan
@@ -106,7 +129,8 @@ $xlarge : 1440px;
 }
 
 /* Mobiles (Portrait) : 320 to 767 */
-@media (min-width: 320px) and (max-width: $small - 1){
+// (min-width: 319px) and
+@media (max-width: $small - 1){
   
   // Pre Halalan
   @import './pre-halalan/320';

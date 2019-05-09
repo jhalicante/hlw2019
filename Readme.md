@@ -7,6 +7,18 @@ Blob Storage Credential for Halalan Widget:
 - Storage account name: halalanwidget
 - Keys: XLv1xLDQD0EVX6gRhb2N7d0JPQM6J5H60EFOvxYxPPSeLyCeSP99uPkDTAruX2arm9g6o3zFTxMBqBYAtqU2ZA==
 
+https://devstorageswitch.z23.web.core.windows.net/halalan/home.html
+    username : newsteam
+    password : W@u4eqg@q7=rzf2K
+
+
+
+<!-- SET THIS PER SITE FOR THE ON/OFF OF WIDGET -->
+Head:
+<link rel="stylesheet" type="text/css" href="https://assets.abs-cbn.com/universalnav/staging-uninav-v4.2.0.css">
+Footer:
+<script src="//assets.abs-cbn.com/universalnav/staging-uninav-v4.2.0.js"></script>
+
 
 SETUP : 
  - `NPM INSTALL`

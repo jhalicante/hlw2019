@@ -30,7 +30,11 @@
                 padding: 0 20px;
                 .left {
                     align-items: center;
-                    line-height: 2;
+                    line-height: 3;
+                    .latest-news {
+                        font-size: 18px;
+                        white-space: nowrap;
+                    }
                 }
                 .right {
                     align-items: center;
@@ -79,6 +83,14 @@
             }
             
             .countdown-container {
+                .polls-hours,
+                .polls-mins {
+                    h3 {
+                        line-height: 1.2;
+                        margin: 0;
+                        font-size: 24px;
+                    }
+                }
                 .updates {
                     width: 123px;
                     height: 54px;

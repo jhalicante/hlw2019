@@ -25,11 +25,16 @@
                 height: 36px;
                 padding: 0 14px;
                 .left {
+                    .title {
+                        font-size: 16px;
+                    }
                     .top {
                         color: #fff;
+                        font-size: 16px;
                     }
                     .er-percent {
-                        font-size: 14px;
+                        font-size: 13px;
+                        font-weight: 200;
                     }
                     .partial {
                         display: none;
@@ -73,6 +78,7 @@
                             .not-splitted {
                                 display: none;
                             }
+                            .location { display: none; }
                         }
                         .location { display: none; }
                         .count {     

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>HALALAN DAY</title>
     <!-- START: STYLES -->
-    <link rel="stylesheet" type="text/css" media="screen" href="dist/master.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="src/styles/master.min.css">
     <!-- END: STYLES -->
 </head>
 <body>
@@ -32,51 +32,19 @@
                     </div>
                 </div>
                 <div class="content-container">
-                    {% for i in range(0, 2) -%}
+                    {% for i in range(0, 6) -%}
                     <div class="teaser">
                         <div class="img-holder" style="background: #ccc url('src/images/rss-image.jpg') no-repeat;background-size: cover;">
-                            <img src="src/images/rss-image.jpg" alt="">                    
+                            <img src="src/images/rss-image.jpg" alt="">
                         </div>
                         <div class="content">
                             <p class="text-content">
                                 Roque says Senate bid withdrawal due to medical condition, not survey results 
-                                <b class="timestamp">JUST NOW</b>
                             </p>
-                            
+                            <b class="timestamp">JUST NOW</b>
                         </div>
                     </div>
-                    {%- endfor %}
-
-                    {% for i in range(0, 2) -%}
-                    <div class="teaser">
-                        <div class="img-holder" style="background: #ccc url('src/images/rss-image.jpg') no-repeat;background-size: cover;">
-                            <img src="src/images/rss-image2.jpg" alt="">                    
-                        </div>
-                        <div class="content">
-                            <p class="text-content">
-                                INFOGRAPHIC: Party-list nominees who belong to political families 
-                                <b class="timestamp">4 MINS AGO</b>
-                            </p>
-                            
-                        </div>
-                    </div>
-                    {%- endfor %}
-
-
-                    {% for i in range(0, 2) -%}
-                    <div class="teaser">
-                        <div class="img-holder" style="background: #ccc url('src/images/rss-image.jpg') no-repeat;background-size: cover;">
-                            <img src="src/images/rss-image3.jpg" alt="">                    
-                        </div>
-                        <div class="content">
-                            <p class="text-content">
-                                Nothing illegal with premature campaigning, Comelec reiterates 
-                                <b class="timestamp">1 MINS AGO</b>
-                            </p>
-                            
-                        </div>
-                    </div>
-                    {%- endfor %}
+                    {%- endfor %} 
 
                     
                 </div>
