@@ -17,13 +17,17 @@ var Halalan = (function() {
 
 	var main = {
 
-		// rssApiUrl : 'http://localhost:2019/dist/rss-feed.xml',//'//halalan-widget.abs-cbnnews.com/iframe/src/scripts/rss-feed.json?timestamp='+new Date().getTime(), 
 		rssApiUrl : '//news.abs-cbn.com/rss/tag/halalan-2019',
 		resultsApiUrl : '//blob-prod-senator.abs-cbn.com/widget/result-senator.json?timestamp='+new Date().getTime(),
+		socketHostUrl : '//api-newsapp.abs-cbn.com',
+		
+		// DEV
 		ocpKey : '2643d7fa4c764507811241b67d43dd34',
 		getSwitchApiUrl : '//dev-api.abs-cbn.com/switch/v1/getswitch',
 
-		socketHostUrl : '//api-newsapp.abs-cbn.com',
+		// // PROD
+		// ocpKey :'d79a936b9fec4ec2b0759e595887a3d5',
+		// getSwitchApiUrl : '//oneottprodapi.azure-api.net',
 
 		RSSFeed : function() {
 			var jsonText;
@@ -43,6 +47,9 @@ var Halalan = (function() {
 						var pubDate = $(this).find('pubDate').text();
 
 						if(index == 6) { return false; }
+
+						var convertImg = image;
+						image = convertImg.replace("http://", "https://");
 
 						var markup = '<div class="teaser">';
 								markup += '<a href="'+link+'" target="_blank" id="thumb-'+index+'"><div class="img-holder" style="background: #ccc url('+decodeURIComponent(image)+') no-repeat;background-size: cover;">';
@@ -74,13 +81,28 @@ var Halalan = (function() {
 
 				var socket = io(main.socketHostUrl,{'transports': ['websocket', 'polling']});
 
+				$('.senator-results').html('');
+
 				socket.on('results', function (data) {
 					console.log(data);
 
 					$('.senator-results').html('');
 
-					if(data.result.length > 0) {
+					// Get Month/Day/Year
+					var check = moment(data.timestamputc8, 'YYYY/MM/DD HH:mm a'); 
+					var month = check.format('MMMM');
+					var day   = check.format('DD');
+					var year  = check.format('YYYY');
+					
+					// Get Hour/Minutes/Meridiem
+					var hm = new Date(data.timestamputc8);
+					var chm = hm.getHours()+":"+hm.getMinutes();
+					var partial_time = main.tConvert12Hr(chm)+' '+month+' '+day+', '+year;
 
+
+					if(data.result.length > 0) {
+							
+							$('.partial-time').html(partial_time);		
 							
 							var results = data.result,
 								index = 0;
@@ -124,6 +146,7 @@ var Halalan = (function() {
 								if(results[i].partyName != null || results[i].partyName != undefined) {
 									partyName = results[i].partyName;
 								} else { partyName = ''; }
+
 
 								var markup = '<li>';
 										markup += '<div class="list-content">';
@@ -233,29 +256,110 @@ var Halalan = (function() {
 
 		getSwitch : function() {
 			
-			var widgetsRowKey = [
+			// var widgetsRowKey = [
+			// 		'newshalwidget1',
+			// 		'newshalwidget2',
+			// 		'newshalwidget3',
+			// 		'newshalwidget4', 
+
+			// 		'entertainmenthalwidget1', 
+			// 		'entertainmenthalwidget2', 
+			// 		'entertainmenthalwidget3', 
+			// 		'entertainmenthalwidget4',
+					
+			// 		'lifestlyehalwidget1',
+			// 		'lifestlyehalwidget2',
+			// 		'lifestlyehalwidget3',
+			// 		'lifestlyehalwidget4',
+
+			// 		'sportshalwidget1',
+			// 		'sportshalwidget2',
+			// 		'sportshalwidget3',
+			// 		'sportshalwidget4'];
+
+			// for (var i = 0; i < widgetsRowKey.length; i++) {
+			// 	main.checkWidgetStatus(widgetsRowKey[i]);
+			// }
+
+			var widgetsRowKey;
+
+			var parentUrl = (window.location != window.parent.location) ? document.referrer : document.location.href;
+
+			// NEWS WIDGET HANDLING INITIATOR TO SHOW WIDGET
+			if(
+				parentUrl == 'https://newsstaging.abs-cbnnews.com/' ||
+				parentUrl == 'https://newsstaging.abs-cbnnews.com/news' ||
+				parentUrl == 'https://newsstaging.abs-cbnnews.com/business' ||
+				parentUrl == 'https://newsstaging.abs-cbnnews.com/entertainment' ||
+				parentUrl == 'https://newsstaging.abs-cbnnews.com/life' ||
+				parentUrl == 'https://newsstaging.abs-cbnnews.com/sports' ||
+				parentUrl == 'https://newsstaging.abs-cbnnews.com/spotlight' ||
+				parentUrl == 'https://newsstaging.abs-cbnnews.com/trending' ||
+				parentUrl == 'https://newsstaging.abs-cbnnews.com/classified-odd' ||
+				parentUrl == 'https://newsstaging.abs-cbnnews.com/opinions' || 
+
+				parentUrl == 'http://newsstaging.abs-cbnnews.com/' ||
+				parentUrl == 'http://newsstaging.abs-cbnnews.com/news' ||
+				parentUrl == 'http://newsstaging.abs-cbnnews.com/business' ||
+				parentUrl == 'http://newsstaging.abs-cbnnews.com/entertainment' ||
+				parentUrl == 'http://newsstaging.abs-cbnnews.com/life' ||
+				parentUrl == 'http://newsstaging.abs-cbnnews.com/sports' ||
+				parentUrl == 'http://newsstaging.abs-cbnnews.com/spotlight' ||
+				parentUrl == 'http://newsstaging.abs-cbnnews.com/trending' ||
+				parentUrl == 'http://newsstaging.abs-cbnnews.com/classified-odd' ||
+				parentUrl == 'http://newsstaging.abs-cbnnews.com/opinions'
+			)  { 
+				widgetsRowKey = [
 					'newshalwidget1',
 					'newshalwidget2',
 					'newshalwidget3',
-					'newshalwidget4', 
+					'newshalwidget4'];
+					
+				for (var n = 0; n < widgetsRowKey.length; n++) {
+					main.checkWidgetStatus(widgetsRowKey[n]);
+				}
+			}
 
+			// ENTERTAINMENT WIDGET INITIATOR TO SHOW WIDGET
+			if(parentUrl == 'http://dev-entertainment.abs-cbn.com/' || parentUrl == 'https://dev-entertainment.abs-cbn.com/')  { 
+				
+				widgetsRowKey = [
 					'entertainmenthalwidget1', 
 					'entertainmenthalwidget2', 
 					'entertainmenthalwidget3', 
-					'entertainmenthalwidget4',
-					
+					'entertainmenthalwidget4'];
+
+				for (var e = 0; e < widgetsRowKey.length; e++) {
+					main.checkWidgetStatus(widgetsRowKey[e]);
+				}
+			}
+
+			// LIFESTYLE WIDGET INITIATOR TO SHOW WIDGET
+			if(parentUrl == 'http://lifestyle-loadtest.abs-cbn.com/' || parentUrl == 'https://lifestyle-loadtest.abs-cbn.com/')  { 
+
+				widgetsRowKey = [
 					'lifestlyehalwidget1',
 					'lifestlyehalwidget2',
 					'lifestlyehalwidget3',
-					'lifestlyehalwidget4',
+					'lifestlyehalwidget4'];
 
+				for (var lf = 0; lf < widgetsRowKey.length; lf++) {
+					main.checkWidgetStatus(widgetsRowKey[lf]);
+				}
+			}
+
+			// SPORTS WIDGET INITIATOR TO SHOW WIDGET
+			if(parentUrl == 'http://dev-sports.abs-cbn.com/' || parentUrl == 'https://dev-sports.abs-cbn.com/')  { 
+
+				widgetsRowKey = [
 					'sportshalwidget1',
 					'sportshalwidget2',
 					'sportshalwidget3',
 					'sportshalwidget4'];
 
-			for (var i = 0; i < widgetsRowKey.length; i++) {
-				main.checkWidgetStatus(widgetsRowKey[i]);
+				for (var s = 0; s < widgetsRowKey.length; s++) {
+					main.checkWidgetStatus(widgetsRowKey[s]);
+				}
 			}
 		},
 
@@ -296,7 +400,6 @@ var Halalan = (function() {
 							$('.pre-halalan-hours-text').text('HOUR');
 						}
 
-						console.log('Res:: ',res.switch.RowKey+' II '+res.switch.Status == "ON");
 
 						// NEWS WIDGET HANDLING
 						if(
@@ -309,24 +412,35 @@ var Halalan = (function() {
 							parentUrl == 'https://newsstaging.abs-cbnnews.com/spotlight' ||
 							parentUrl == 'https://newsstaging.abs-cbnnews.com/trending' ||
 							parentUrl == 'https://newsstaging.abs-cbnnews.com/classified-odd' ||
-							parentUrl == 'https://newsstaging.abs-cbnnews.com/opinions'
+							parentUrl == 'https://newsstaging.abs-cbnnews.com/opinions' || 
+
+							parentUrl == 'http://newsstaging.abs-cbnnews.com/' ||
+							parentUrl == 'http://newsstaging.abs-cbnnews.com/news' ||
+							parentUrl == 'http://newsstaging.abs-cbnnews.com/business' ||
+							parentUrl == 'http://newsstaging.abs-cbnnews.com/entertainment' ||
+							parentUrl == 'http://newsstaging.abs-cbnnews.com/life' ||
+							parentUrl == 'http://newsstaging.abs-cbnnews.com/sports' ||
+							parentUrl == 'http://newsstaging.abs-cbnnews.com/spotlight' ||
+							parentUrl == 'http://newsstaging.abs-cbnnews.com/trending' ||
+							parentUrl == 'http://newsstaging.abs-cbnnews.com/classified-odd' ||
+							parentUrl == 'http://newsstaging.abs-cbnnews.com/opinions'
 						)  {
 							if( res.switch.RowKey == "newshalwidget1" && res.switch.Status == "ON" ) {
 								$('.pre-halalan-widget-container').removeClass('hide');
 							}
 							if( res.switch.RowKey == "newshalwidget2" && res.switch.Status == "ON" ) {
-								$('.pre-halalan-widget-container').removeClass('hide');
-							}
-							if( res.switch.RowKey == "newshalwidget3" && res.switch.Status == "ON" ) {
 								$('.halalan-day-widget-container').removeClass('hide');
 							}
-							if( res.switch.RowKey == "newshalwidget4" && res.switch.Status == "ON" ) {
+							if( res.switch.RowKey == "newshalwidget3" && res.switch.Status == "ON" ) {
 								$('.halalan-day-b-widget-container').removeClass('hide');
+							}
+							if( res.switch.RowKey == "newshalwidget4" && res.switch.Status == "ON" ) {
+								$('.halalan-results-widget-container').removeClass('hide');
 							}
 						}
 
 						// ENTERTAINMENT WIDGET HANDLING
-						if(parentUrl == 'http://dev-entertainment.abs-cbn.com/')  {
+						if(parentUrl == 'http://dev-entertainment.abs-cbn.com/' || parentUrl == 'https://dev-entertainment.abs-cbn.com/')  {
 							if( res.switch.RowKey == "entertainmenthalwidget1" && res.switch.Status == "ON" ) {
 								$('.pre-halalan-widget-container').removeClass('hide');
 							}
@@ -342,7 +456,7 @@ var Halalan = (function() {
 						}
 
 						// LIFESTYLE WIDGET HANDLING
-						if(parentUrl == 'https://lifestyle-loadtest.abs-cbn.com/')  {
+						if(parentUrl == 'http://lifestyle-loadtest.abs-cbn.com/' || parentUrl == 'https://lifestyle-loadtest.abs-cbn.com/')  {
 							if( res.switch.RowKey == "lifestlyehalwidget1" && res.switch.Status == "ON" ) {
 								$('.pre-halalan-widget-container').removeClass('hide');
 							}
@@ -358,7 +472,7 @@ var Halalan = (function() {
 						}
 
 						// SPORTS WIDGET HANDLING
-						if(parentUrl == 'https://dev-sports.abs-cbn.com/')  {
+						if(parentUrl == 'http://dev-sports.abs-cbn.com/' || parentUrl == 'https://dev-sports.abs-cbn.com/')  {
 							if( res.switch.RowKey == "sportshalwidget1" && res.switch.Status == "ON" ) {
 								$('.pre-halalan-widget-container').removeClass('hide');
 							}
@@ -376,6 +490,18 @@ var Halalan = (function() {
 				}
 			});
 		},
+
+		tConvert12Hr : function(time) {
+			// Check correct time format and split into components
+			time = time.toString ().match (/^([01]\d|2[0-3])(:)([0-5]\d)(:[0-5]\d)?$/) || [time];
+
+			if (time.length > 1) { // If time format correct
+				time = time.slice (1);  // Remove full string match value
+				time[5] = +time[0] < 12 ? ' AM' : ' PM'; // Set AM/PM
+				time[0] = +time[0] % 12 || 12; // Adjust hours
+			}
+			return time.join (''); // return adjusted time or original string
+		}
 
     };
 

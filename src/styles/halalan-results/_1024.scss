@@ -90,12 +90,14 @@
 
                     .list-content {
                         display: flex;
+                        align-items: center;
                         .name {
                             padding: 0;
                             line-height: 1.1;
                             .count {
                                 display: block;
                                 text-align: left;
+                                line-height: 1.1;
                             }
                             h4,span {
                                 font-size: 12px;
@@ -108,7 +110,7 @@
                             }
                             .location { display: none; }                            
                         }
-                        .location { display: block; margin-left: 5px; }
+                        .location { display: block; margin-left: 5px;line-height: 0.9; }
                         .count {     
                             text-align: right;
                             margin-right: 5px;

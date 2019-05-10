@@ -32,10 +32,10 @@
                     </div>
                 </div>
                 <div class="content-container rss-feed-content">
-                    {% for i in range(0, 2) -%}
+                    {% for i in range(0, 1) -%}
                     <div class="teaser">
-                        <div class="img-holder" style="background: #ccc url('src/images/rss-image.jpg') no-repeat;background-size: cover;">
-                            <img src="src/images/rss-image.jpg" alt="">                    
+                        <div class="img-holder" style="background: #ccc url('ssrc/images/rss-image.jpg') no-repeat;background-size: cover;">
+                            <img src="ssrc/images/rss-image.jpg" alt="">                    
                         </div>
                         <div class="content">
                             <p class="text-content">
@@ -47,7 +47,7 @@
                     </div>
                     {%- endfor %}
 
-                    {% for i in range(0, 2) -%}
+                    {% for i in range(0, 3) -%}
                     <div class="teaser">
                         <div class="img-holder" style="background: #ccc url('src/images/rss-image.jpg') no-repeat;background-size: cover;">
                             <img src="src/images/rss-image2.jpg" alt="">                    
@@ -125,7 +125,7 @@
 
             {# 768 #}
             <div class="right-content pre-halalan-mobile-landscape hide">
-                <img src="src/images/768/halalan-logo.jpg" alt="">
+                <a href="https://news.abs-cbn.com/halalan2019"><img src="src/images/logo-300x138.jpg" style="height:138px; width: 300px; max-width:100%;"  alt="Halalan 2019" /></a>            
                 <div class="countdown-container">
                     <div class="days"><h3>29</h3><span>DAYS</span></div>
                     <div class="hours "><h3>05</h3><span>HOURS</span></div>
@@ -146,7 +146,7 @@
 
             {# 420 #}
             <div class="right-content pre-halalan-mobile-portrait hide">
-                <img src="src/images/420/halalan-logo.jpg" alt="">
+                <a href="https://news.abs-cbn.com/halalan2019"><img src="src/images/logo-274x126.jpg" style="width: 274px; max-width:100%;"  alt="Halalan 2019" /></a>
                 <div class="countdown-container">
 
                     <div class="date-time">
