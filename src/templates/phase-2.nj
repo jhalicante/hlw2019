@@ -82,7 +82,7 @@
                 </div>
             </div>
 
-            {# 768 #}
+            {# 420 #}
             <div class="right-content halalan-day-mobile-portrait hide">
                 <img src="src/images/halalan-day/420/logo.jpg" alt="">
                 <div class="countdown-container polls-container">

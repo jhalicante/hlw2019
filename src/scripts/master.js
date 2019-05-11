@@ -10,7 +10,6 @@ var Halalan = (function() {
 
 	function init() {
 		main.RSSFeed();
-		main.animatePreloader();
 		main.senatorResults();
 		main.getSwitch();
 	}
@@ -21,13 +20,13 @@ var Halalan = (function() {
 		resultsApiUrl : '//blob-prod-senator.abs-cbn.com/widget/result-senator.json?timestamp='+new Date().getTime(),
 		socketHostUrl : '//api-newsapp.abs-cbn.com',
 		
-		// DEV
+		// // DEV
 		ocpKey : '2643d7fa4c764507811241b67d43dd34',
 		getSwitchApiUrl : '//dev-api.abs-cbn.com/switch/v1/getswitch',
 
-		// // PROD
+		// PROD
 		// ocpKey :'d79a936b9fec4ec2b0759e595887a3d5',
-		// getSwitchApiUrl : '//oneottprodapi.azure-api.net',
+		// getSwitchApiUrl : '//oneottprodapi.azure-api.net/switch/v1/getswitch',
 
 		RSSFeed : function() {
 			var jsonText;
@@ -70,7 +69,7 @@ var Halalan = (function() {
 					});
 				},
 				error: function() {
-					console.error("An error occurred while processing XML file.");
+					console.error("An error occurred while processing RSS Feed XML.");
 				}
 			}); 
 		},
@@ -84,7 +83,6 @@ var Halalan = (function() {
 				$('.senator-results').html('');
 
 				socket.on('results', function (data) {
-					console.log(data);
 
 					$('.senator-results').html('');
 
@@ -186,68 +184,6 @@ var Halalan = (function() {
 			}					
 		},
 
-		animatePreloader : function() {
-			var title = 'HALALAN',
-					date =  '2019', //new Date().getFullYear(),
-					i = 0;
-
-			$('.title-content').html('');
-			$('.year-content').html('');
-
-				// Title 
-				setTimeout(function() {
-					var titleTimer = setInterval( function() {
-						var markup = '<span class="text-title animated zoomInLeft">'+title[i]+'</span>';
-						$('.title-content').append(markup);
-						
-						i++;
-
-						if(title.length == i ) {
-							clearInterval(titleTimer);
-						}
-
-					}, 100);
-				}, 100);
-
-
-				// Hide Halalan Title after 3secs
-				setTimeout(function() {
-					$('.text-title').fadeOut();
-				}, 3000);
-
-				// Year
-				setTimeout(function() {
-					
-					// $('.year').html('<h3 class="text-year animated zoomInUp">'+date.getFullYear()+'</h3>');							
-
-					i = 0;
-
-					var yearTimer = setInterval( function() {
-						
-						var markup = '<span class="text-year animated zoomInRight">'+date[i]+'</span>';
-						$('.year-content').append(markup);
-						
-						i++;
-
-						if(date.length == i ) {
-							clearInterval(yearTimer);
-						}
-
-					}, 100);
-					
-				}, 3100);
-
-				// Hide Halalan Year after 4secs
-				setTimeout(function() {
-					// $('.text-title').fadeIn();
-					$('.text-year').fadeOut();
-
-					main.animatePreloader();
-				}, 5500);
-
-				
-		},
-
 		comma : function(x) {
 				var parts = x.toString().split(".");
 				parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -297,7 +233,8 @@ var Halalan = (function() {
 				parentUrl == 'https://newsstaging.abs-cbnnews.com/trending' ||
 				parentUrl == 'https://newsstaging.abs-cbnnews.com/classified-odd' ||
 				parentUrl == 'https://newsstaging.abs-cbnnews.com/opinions' || 
-
+				parentUrl == 'https://newsstaging.abs-cbnnews.com/testarticle2' ||
+				
 				parentUrl == 'http://newsstaging.abs-cbnnews.com/' ||
 				parentUrl == 'http://newsstaging.abs-cbnnews.com/news' ||
 				parentUrl == 'http://newsstaging.abs-cbnnews.com/business' ||
@@ -307,7 +244,8 @@ var Halalan = (function() {
 				parentUrl == 'http://newsstaging.abs-cbnnews.com/spotlight' ||
 				parentUrl == 'http://newsstaging.abs-cbnnews.com/trending' ||
 				parentUrl == 'http://newsstaging.abs-cbnnews.com/classified-odd' ||
-				parentUrl == 'http://newsstaging.abs-cbnnews.com/opinions'
+				parentUrl == 'http://newsstaging.abs-cbnnews.com/opinions' ||
+				parentUrl == 'http://newsstaging.abs-cbnnews.com/testarticle2'
 			)  { 
 				widgetsRowKey = [
 					'newshalwidget1',
@@ -321,8 +259,7 @@ var Halalan = (function() {
 			}
 
 			// ENTERTAINMENT WIDGET INITIATOR TO SHOW WIDGET
-			if(parentUrl == 'http://dev-entertainment.abs-cbn.com/' || parentUrl == 'https://dev-entertainment.abs-cbn.com/')  { 
-				
+			if(parentUrl == 'http://dev-entertainment.abs-cbn.com/' || parentUrl == 'https://dev-entertainment.abs-cbn.com/' || parentUrl == 'https://ent.abs-cbn.com/')  {
 				widgetsRowKey = [
 					'entertainmenthalwidget1', 
 					'entertainmenthalwidget2', 
@@ -381,10 +318,6 @@ var Halalan = (function() {
 						var diffDays = b.diff(a, 'hours');
 
 						var parentUrl = (window.location != window.parent.location) ? document.referrer : document.location.href;
-						
-						// parentUrl = 'http://dev-entertainment.abs-cbn.com/';
-
-						console.log('Site ', parentUrl);
 
 						$('.pre-halalan-days-number').text(res.timetobreakTransformed.days);
 						$('.pre-halalan-hours-number').text(res.timetobreakTransformed.hours);
@@ -413,7 +346,8 @@ var Halalan = (function() {
 							parentUrl == 'https://newsstaging.abs-cbnnews.com/trending' ||
 							parentUrl == 'https://newsstaging.abs-cbnnews.com/classified-odd' ||
 							parentUrl == 'https://newsstaging.abs-cbnnews.com/opinions' || 
-
+							parentUrl == 'https://newsstaging.abs-cbnnews.com/testarticle2' ||
+							
 							parentUrl == 'http://newsstaging.abs-cbnnews.com/' ||
 							parentUrl == 'http://newsstaging.abs-cbnnews.com/news' ||
 							parentUrl == 'http://newsstaging.abs-cbnnews.com/business' ||
@@ -423,7 +357,8 @@ var Halalan = (function() {
 							parentUrl == 'http://newsstaging.abs-cbnnews.com/spotlight' ||
 							parentUrl == 'http://newsstaging.abs-cbnnews.com/trending' ||
 							parentUrl == 'http://newsstaging.abs-cbnnews.com/classified-odd' ||
-							parentUrl == 'http://newsstaging.abs-cbnnews.com/opinions'
+							parentUrl == 'http://newsstaging.abs-cbnnews.com/opinions' ||
+							parentUrl == 'http://newsstaging.abs-cbnnews.com/testarticle2'
 						)  {
 							if( res.switch.RowKey == "newshalwidget1" && res.switch.Status == "ON" ) {
 								$('.pre-halalan-widget-container').removeClass('hide');
@@ -440,7 +375,8 @@ var Halalan = (function() {
 						}
 
 						// ENTERTAINMENT WIDGET HANDLING
-						if(parentUrl == 'http://dev-entertainment.abs-cbn.com/' || parentUrl == 'https://dev-entertainment.abs-cbn.com/')  {
+						if( parentUrl == 'http://dev-entertainment.abs-cbn.com/' || parentUrl == 'https://dev-entertainment.abs-cbn.com/' || parentUrl == 'https://ent.abs-cbn.com/')  {
+
 							if( res.switch.RowKey == "entertainmenthalwidget1" && res.switch.Status == "ON" ) {
 								$('.pre-halalan-widget-container').removeClass('hide');
 							}
@@ -456,7 +392,8 @@ var Halalan = (function() {
 						}
 
 						// LIFESTYLE WIDGET HANDLING
-						if(parentUrl == 'http://lifestyle-loadtest.abs-cbn.com/' || parentUrl == 'https://lifestyle-loadtest.abs-cbn.com/')  {
+						if(parentUrl == 'http://lifestyle-loadtest.abs-cbn.com/' || parentUrl == 'https://lifestyle-loadtest.abs-cbn.com/' ||
+							parentUrl == 'http://lifestyle.abs-cbn.com/' || parentUrl == 'https://lifestyle.abs-cbn.com/' )  {
 							if( res.switch.RowKey == "lifestlyehalwidget1" && res.switch.Status == "ON" ) {
 								$('.pre-halalan-widget-container').removeClass('hide');
 							}
@@ -472,7 +409,8 @@ var Halalan = (function() {
 						}
 
 						// SPORTS WIDGET HANDLING
-						if(parentUrl == 'http://dev-sports.abs-cbn.com/' || parentUrl == 'https://dev-sports.abs-cbn.com/')  {
+						if(parentUrl == 'http://dev-sports.abs-cbn.com/' || parentUrl == 'https://dev-sports.abs-cbn.com/' ||
+							parentUrl == 'http://lifestyle.abs-cbn.com/' || parentUrl == 'https://lifestyle.abs-cbn.com/')  {
 							if( res.switch.RowKey == "sportshalwidget1" && res.switch.Status == "ON" ) {
 								$('.pre-halalan-widget-container').removeClass('hide');
 							}

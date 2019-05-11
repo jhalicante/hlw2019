@@ -13,9 +13,12 @@
           
         .right-content {
             .countdown-container {
+                .pc-live-results {
+                    height: 56px;
+                }
                 .updates {
                     width: 120px;
-                    height: 56px;
+                    height: 54px;
                     border-right: 6px solid #074584;
 
                     .updates-holder {

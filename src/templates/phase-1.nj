@@ -33,7 +33,7 @@
                 </div>
                 <div class="content-container rss-feed-content">
                     {% for i in range(0, 1) -%}
-                    <div class="teaser">
+                    {# <div class="teaser">
                         <div class="img-holder" style="background: #ccc url('ssrc/images/rss-image.jpg') no-repeat;background-size: cover;">
                             <img src="ssrc/images/rss-image.jpg" alt="">                    
                         </div>
@@ -44,10 +44,10 @@
                             <b class="timestamp">JUST NOW</b>
                             
                         </div>
-                    </div>
+                    </div> #}
                     {%- endfor %}
 
-                    {% for i in range(0, 3) -%}
+                    {% for i in range(0, 4) -%}
                     <div class="teaser">
                         <div class="img-holder" style="background: #ccc url('src/images/rss-image.jpg') no-repeat;background-size: cover;">
                             <img src="src/images/rss-image2.jpg" alt="">                    
@@ -83,7 +83,9 @@
 
             {# Desktop #}
             <div class="right-content pre-halalan-desktop hide">
-                <img src="src/images/halalan-logo.jpg" alt="">
+                <a href="https://news.abs-cbn.com/halalan2019" target="blank">
+                    <img src="src/images/halalan-logo.jpg" alt="">
+                </a>
                 <div class="countdown-container">
                     <div class="days"><h3>29</h3><span>DAYS</span></div>
                     <div class="hours "><h3>05</h3><span>HOURS</span></div>
@@ -104,7 +106,9 @@
 
             {# 960 #} 
             <div class="right-content pre-halalan-tablet hide">
-                <img src="src/images/960/halalan-logo.jpg" alt="">
+                <a href="https://news.abs-cbn.com/halalan2019" target="blank">
+                    <img src="src/images/960/halalan-logo.jpg" alt="">
+                </a>
                 <div class="countdown-container">
                     <div class="days"><h3>29</h3><span>DAYS</span></div>
                     <div class="hours "><h3>05</h3><span>HOURS</span></div>
@@ -125,7 +129,9 @@
 
             {# 768 #}
             <div class="right-content pre-halalan-mobile-landscape hide">
-                <a href="https://news.abs-cbn.com/halalan2019"><img src="src/images/logo-300x138.jpg" style="height:138px; width: 300px; max-width:100%;"  alt="Halalan 2019" /></a>            
+                <a href="https://news.abs-cbn.com/halalan2019" target="blank">
+                    <img src="src/images/halalan-day/768/logo.jpg" alt="">
+                </a>
                 <div class="countdown-container">
                     <div class="days"><h3>29</h3><span>DAYS</span></div>
                     <div class="hours "><h3>05</h3><span>HOURS</span></div>
@@ -146,7 +152,9 @@
 
             {# 420 #}
             <div class="right-content pre-halalan-mobile-portrait hide">
-                <a href="https://news.abs-cbn.com/halalan2019"><img src="src/images/logo-274x126.jpg" style="width: 274px; max-width:100%;"  alt="Halalan 2019" /></a>
+                <a href="https://news.abs-cbn.com/halalan2019" target="blank">
+                    <img src="src/images/halalan-day/420/logo.jpg" alt="">
+                </a>
                 <div class="countdown-container">
 
                     <div class="date-time">

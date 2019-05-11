@@ -16,13 +16,13 @@ var HalalanSwitchWidget = (function() {
 
 	var main = {
 
-		// DEV
+		// // DEV
 		ocpKey : '2643d7fa4c764507811241b67d43dd34',
 		getSwitchApiUrl : '//dev-api.abs-cbn.com/switch/v1/getswitch',
 
-		// // PROD
+		// PROD
 		// ocpKey :'d79a936b9fec4ec2b0759e595887a3d5',
-		// getSwitchApiUrl : '//oneottprodapi.azure-api.net',
+		// getSwitchApiUrl : '//oneottprodapi.azure-api.net/switch/v1/getswitch',
  
 		getSwitch : function() {
 			
@@ -32,15 +32,13 @@ var HalalanSwitchWidget = (function() {
 
 			var parentUrl = window.location.hostname;
 
-			console.error(parentUrl);
-
 			// NEWS WIDGET HANDLING
 			if(parentUrl == 'newsstaging.abs-cbnnews.com')  {
 				main.checkWidgetStatus('newsIframe');
 			}
 
 			// ENTERTAINMENT WIDGET HANDLING
-			if(parentUrl == 'dev-entertainment.abs-cbn.com')  { 
+			if(parentUrl == 'dev-entertainment.abs-cbn.com' || parentUrl == 'ent.abs-cbn.com') {
 				main.checkWidgetStatus('entertainmentIframe');
 			}
 
@@ -57,7 +55,6 @@ var HalalanSwitchWidget = (function() {
 		},
 
 		checkWidgetStatus : function(RowKey) {
-			console.log('Rowkey Called: ', RowKey);
 			$.ajax({
 				type : 'GET',
 				crossDomain: true,
