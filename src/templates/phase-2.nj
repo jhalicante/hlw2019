@@ -32,6 +32,19 @@
                     </div>
                 </div>
                 <div class="content-container">
+                    {% for i in range(0, 1) -%}
+                        <div class="teaser">
+                            <div class="img-holder" style="background: #ccc url('ssrc/images/rss-image.jpg') no-repeat;background-size: cover;">
+                                <img src="ssrc/images/rss-image.jpg" alt="">
+                            </div>
+                            <div class="content">
+                                <p class="text-content">
+                                    Roque says Senate bid withdrawal due to medical condition, not survey results 
+                                </p>
+                                <b class="timestamp">JUST NOW</b>
+                            </div>
+                        </div>
+                    {%- endfor %} 
                     {% for i in range(0, 6) -%}
                     <div class="teaser">
                         <div class="img-holder" style="background: #ccc url('src/images/rss-image.jpg') no-repeat;background-size: cover;">
