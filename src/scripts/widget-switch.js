@@ -17,23 +17,19 @@ var HalalanSwitchWidget = (function() {
 	var main = {
 
 		// // DEV
-		ocpKey : '2643d7fa4c764507811241b67d43dd34',
-		getSwitchApiUrl : '//dev-api.abs-cbn.com/switch/v1/getswitch',
+		// ocpKey : '2643d7fa4c764507811241b67d43dd34',
+		// getSwitchApiUrl : '//dev-api.abs-cbn.com/switch/v1/getswitch',
 
 		// PROD
-		// ocpKey :'d79a936b9fec4ec2b0759e595887a3d5',
-		// getSwitchApiUrl : '//oneottprodapi.azure-api.net/switch/v1/getswitch',
+		ocpKey :'d79a936b9fec4ec2b0759e595887a3d5',
+		getSwitchApiUrl : '//oneottprodapi.azure-api.net/switch/v1/getswitch',
  
 		getSwitch : function() {
 			
-			var widgetsRowKey = ['entertainmentIframe', 'lifestyleIframe', 'newsIframe', 'sportsIframe'];
-
-			// for (var i = 0; i < widgetsRowKey.length; i++) {
-
 			var parentUrl = window.location.hostname;
 
 			// NEWS WIDGET HANDLING
-			if(parentUrl == 'newsstaging.abs-cbnnews.com')  {
+			if(parentUrl == 'newsstaging.abs-cbnnews.com' || parentUrl == 'news.abs-cbn.com')  {
 				main.checkWidgetStatus('newsIframe');
 			}
 
@@ -43,15 +39,14 @@ var HalalanSwitchWidget = (function() {
 			}
 
 			// LIFESTYLE WIDGET HANDLING
-			if(parentUrl == 'lifestyle-loadtest.abs-cbn.com')  {
+			if(parentUrl == 'lifestyle-loadtest.abs-cbn.com' || parentUrl == 'lifestyle.abs-cbn.com')  {
 				main.checkWidgetStatus('lifestyleIframe');
 			}
 			
 			// SPORTS WIDGET HANDLING
-			if(parentUrl == 'dev-sports.abs-cbn.com')  {
+			if(parentUrl == 'dev-sports.abs-cbn.com' || parentUrl == 'sports.abs-cbn.com')  {
 				main.checkWidgetStatus('sportsIframe');
 			}
-			// }
 		},
 
 		checkWidgetStatus : function(RowKey) {
