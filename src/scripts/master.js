@@ -95,8 +95,11 @@ var Halalan = (function() {
 					// Get Hour/Minutes/Meridiem
 					var hm = new Date(data.timestamputc8);
 					var chm = hm.getHours()+":"+hm.getMinutes();
-					var partial_time = main.tConvert12Hr(chm)+' '+month+' '+day+', '+year;
+					
+					// https://stackoverflow.com/questions/8888491/how-do-you-display-javascript-datetime-in-12-hour-am-pm-format
+					// var setPHTimeZone = hm.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true, timeZone: "Asia/Manila"} );
 
+					var partial_time = main.tConvert12Hr(chm)+' '+month+' '+day+', '+year;
 
 					if(data.result.length > 0) {
 							
@@ -264,17 +267,17 @@ var Halalan = (function() {
 
 						var parentUrl = (window.location != window.parent.location) ? document.referrer : document.location.href;
 
-						$('.pre-halalan-days-number').text(res.timetobreakTransformed.days);
-						$('.pre-halalan-hours-number').text(res.timetobreakTransformed.hours);
-						$('.pre-halalan-mins-number').text(res.timetobreakTransformed.minutes);
+						$('.pre-halalan-days-number').text(res.timetoexpireTransformed.days);
+						$('.pre-halalan-hours-number').text(res.timetoexpireTransformed.hours);
+						$('.pre-halalan-mins-number').text(res.timetoexpireTransformed.minutes);
 
-						$('.halalan-day-hours-number').text(res.timetobreakTransformed.hours);
-						$('.halalan-day-mins-number').text(res.timetobreakTransformed.minutes);
+						$('.halalan-day-hours-number').text(res.timetoexpireTransformed.hours);
+						$('.halalan-day-mins-number').text(res.timetoexpireTransformed.minutes);
 
-						if(res.timetobreakTransformed.days <= 1) {
+						if(res.timetoexpireTransformed.days <= 1) {
 							$('.pre-halalan-days-text').text('DAY');
 						}
-						if(res.timetobreakTransformed.hours <= 1) {
+						if(res.timetoexpireTransformed.hours <= 1) {
 							$('.pre-halalan-hours-text').text('HOUR');
 						}
 
