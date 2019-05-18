@@ -102,9 +102,16 @@ var Halalan = (function() {
 					if(hm.getHours().toString().length == 1) { 
 						chours = main.addZero(hm.getHours());
 					}
+					else {
+						chours = hm.getHours();
+					}
+					
 					// Add zero if the length of minutes is equal to 1
 					if(hm.getMinutes().toString().length === 1) { 
 						 cmin = main.addZero(hm.getMinutes());
+					}
+					else {
+						cmin = hm.getMinutes();
 					}
 
 					// Format to 12hr
