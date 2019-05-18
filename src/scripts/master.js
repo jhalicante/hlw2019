@@ -92,14 +92,26 @@ var Halalan = (function() {
 					var day   = check.format('DD');
 					var year  = check.format('YYYY');
 					
-					// Get Hour/Minutes/Meridiem
-					var hm = new Date(data.timestamputc8);
-					var chm = hm.getHours()+":"+hm.getMinutes();
-					
-					// https://stackoverflow.com/questions/8888491/how-do-you-display-javascript-datetime-in-12-hour-am-pm-format
-					// var setPHTimeZone = hm.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true, timeZone: "Asia/Manila"} );
+					// Get Timestamp from socket response
+					var hm = new Date(data.timestamp);
 
-					var partial_time = main.tConvert12Hr(chm)+' '+month+' '+day+', '+year;
+					var chours = 0;
+					var cmin = 0;
+
+					// Add zero if the length of hours is equal to 1
+					if(hm.getHours().toString().length == 1) { 
+						chours = main.addZero(hm.getHours());
+					}
+					// Add zero if the length of minutes is equal to 1
+					if(hm.getMinutes().toString().length === 1) { 
+						 cmin = main.addZero(hm.getMinutes());
+					}
+
+					// Format to 12hr
+					var chm = main.tConvert12Hr(chours+":"+cmin);
+
+					// Hour/Minutes/Meridiem month/day/year
+					var partial_time = chm+' '+month+' '+day+', '+year;
 
 					if(data.result.length > 0) {
 							
@@ -361,6 +373,10 @@ var Halalan = (function() {
 				time[0] = +time[0] % 12 || 12; // Adjust hours
 			}
 			return time.join (''); // return adjusted time or original string
+		},
+
+		addZero : function(n){
+			return n<10? '0'+n:''+n;
 		}
 
     };
